@@ -1,19 +1,20 @@
-#pragma once
+﻿#pragma once
 
 #include "DSutil.h"
 #include <unordered_map>
 
 using namespace std;
 
+// Class DxSound dành cho xử lý âm thanh
 class DxSound
 {
-// Attributes
+/// Attributes
 private:
 	static DxSound* instance;
 	CSoundManager* soundManager;
 	unordered_map<int, CSound*> soundStorage;
 
-// Methods
+/// Methods
 public:
 	static DxSound* getInstance();
 	bool initialize();

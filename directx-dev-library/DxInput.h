@@ -1,17 +1,18 @@
-#pragma once
+﻿#pragma once
 
 #include "DxHelper.h"
 
+// Class DxInput dành cho xử lý người dùng Input
 class DxInput
 {
-// Attributes
+/// Attributes
 private:
 	static DxInput* instance;
 	DxMouse* directxMouse;
 	DxKeyboard* directxKeyb;
 	LPDIRECTINPUT8 directxInput;
 
-// Methods
+/// Methods
 private:
 	bool initializeInputDevice();
 

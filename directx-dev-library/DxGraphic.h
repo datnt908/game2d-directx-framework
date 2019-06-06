@@ -1,10 +1,11 @@
-#pragma once
+﻿#pragma once
 
 #include "DxHelper.h"
 
+// Class DxGraphic dành cho xử lý đồ họa
 class DxGraphic
 {
-// Attributes
+/// Attributes
 private:
 	static DxGraphic* instance;
 	LPDIRECT3D9 direct3d;
@@ -13,10 +14,10 @@ private:
 	LPD3DXSPRITE spriteHandler;
 
 public:
-	Vector2 clientSize;
-	HWND window;
+	Vector2 clientSize; // Kích thước nội dung hiển thị của cửa sổ
+	HWND window; // Con trỏ cửa sổ của chương trình
 
-// Methods
+/// Methods
 private:
 	bool initializeDirect3d();
 	bool initializeDevice(bool isFullscreen);
