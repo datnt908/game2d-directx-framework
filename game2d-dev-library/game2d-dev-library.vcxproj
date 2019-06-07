@@ -22,12 +22,14 @@
     <ClInclude Include="BaseGameWorld.h" />
     <ClInclude Include="BaseTileMap.h" />
     <ClInclude Include="Collision\BoundaryBox.h" />
+    <ClInclude Include="Collision\CollisionEvent.h" />
     <ClInclude Include="game2dHelper.h" />
     <ClInclude Include="Graphic\Animation.h" />
     <ClInclude Include="Graphic\AnimationCollection.h" />
     <ClInclude Include="Graphic\Sprite.h" />
     <ClInclude Include="Graphic\TextureCollection.h" />
     <ClInclude Include="Object\GameObject.h" />
+    <ClInclude Include="Object\InteractiveObj.h" />
     <ClInclude Include="Space\Node.h" />
     <ClInclude Include="Space\SpacePartitioning.h" />
   </ItemGroup>
@@ -41,6 +43,7 @@
     <ClCompile Include="Graphic\Sprite.cpp" />
     <ClCompile Include="Graphic\TextureCollection.cpp" />
     <ClCompile Include="Object\GameObject.cpp" />
+    <ClCompile Include="Object\InteractiveObj.cpp" />
     <ClCompile Include="Space\Node.cpp" />
     <ClCompile Include="Space\SpacePartitioning.cpp" />
   </ItemGroup>

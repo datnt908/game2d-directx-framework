@@ -72,6 +72,12 @@
     <ClInclude Include="BaseTileMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Object\InteractiveObj.h">
+      <Filter>Header Files\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision\CollisionEvent.h">
+      <Filter>Header Files\Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGameWorld.cpp">
@@ -106,6 +112,9 @@
     </ClCompile>
     <ClCompile Include="BaseTileMap.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Object\InteractiveObj.cpp">
+      <Filter>Source Files\Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

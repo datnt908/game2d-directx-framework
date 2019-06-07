@@ -6,9 +6,7 @@
 
 using namespace std;
 
-
 #define OBJ_KIND_WEIGHT 100
-
 
 /// Collision
 // class BoundaryBox cho xét va chạm chó chuyển động
@@ -28,6 +26,7 @@ class AnimationCollection;
 
 /// Object
 class GameObject;
+class InteractiveObj;
 
 /// Space
 class SpacePartitioning;
@@ -44,6 +43,7 @@ typedef class GameObject* LPGAMEOBJ;
 typedef struct BroadphaseBox BOX;
 typedef class BoundaryBox BndBox;
 typedef class CollisionEvent COLLIEVENT;
+typedef vector<COLLIEVENT*> COLLIEVENTS;
 typedef class SpacePartitioning SPACE;
 typedef class TextureCollection TEXTURES;
 typedef vector<Sprite*> SPRITES;
@@ -63,6 +63,7 @@ typedef unordered_map<int, GAMEOBJS_V> GAMEOBJS_M;
 /// Functions
 // Kiểm tra overlap của 2 Box
 bool checkAABB_Box(BOX box1, BOX box2);
+float sweptAABB(BndBox mObj, BndBox sObj, Vector2 &normal);
 // Biến đổi WorldPos sang ViewPos với gốc tọa độ(OriginPos) của ViewPort
 Vector2 transformWorldToView(Vector2 worldPos, Vector2 originPos);
 // Biến đổi ViewPos sang WorldPos với gốc tọa độ(OriginPos) của ViewPort
