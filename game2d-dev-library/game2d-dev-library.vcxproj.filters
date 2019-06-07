@@ -51,6 +51,12 @@
     <ClInclude Include="Object\GameObject.h">
       <Filter>Header Files\Object</Filter>
     </ClInclude>
+    <ClInclude Include="Space\Node.h">
+      <Filter>Header Files\Space</Filter>
+    </ClInclude>
+    <ClInclude Include="Space\SpacePartitioning.h">
+      <Filter>Header Files\Space</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGameWorld.cpp">
@@ -64,6 +70,12 @@
     </ClCompile>
     <ClCompile Include="Object\GameObject.cpp">
       <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Space\Node.cpp">
+      <Filter>Source Files\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="Space\SpacePartitioning.cpp">
+      <Filter>Source Files\Space</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

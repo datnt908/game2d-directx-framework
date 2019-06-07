@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_UNICODE;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)directx-dev-library\Utility;$(SolutionDir)game2d-dev-library;$(SolutionDir)ninjagaiden;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)directx-dev-library\Utility;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Space;$(SolutionDir)ninjagaiden;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>

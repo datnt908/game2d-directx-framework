@@ -23,12 +23,16 @@
     <ClInclude Include="Collision\BoundaryBox.h" />
     <ClInclude Include="game2dHelper.h" />
     <ClInclude Include="Object\GameObject.h" />
+    <ClInclude Include="Space\Node.h" />
+    <ClInclude Include="Space\SpacePartitioning.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGameWorld.cpp" />
     <ClCompile Include="Collision\BoundaryBox.cpp" />
     <ClCompile Include="game2dHelper.cpp" />
     <ClCompile Include="Object\GameObject.cpp" />
+    <ClCompile Include="Space\Node.cpp" />
+    <ClCompile Include="Space\SpacePartitioning.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
