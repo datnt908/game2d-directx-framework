@@ -21,12 +21,14 @@
   <ItemGroup>
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="ImmortalObj\ImmortalObj.h" />
+    <ClInclude Include="ImmortalObj\Scoreboard.h" />
     <ClInclude Include="ImmortalObj\TileMap.h" />
     <ClInclude Include="ninjagaidenHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="ImmortalObj\ImmortalObj.cpp" />
+    <ClCompile Include="ImmortalObj\Scoreboard.cpp" />
     <ClCompile Include="ImmortalObj\TileMap.cpp" />
     <ClCompile Include="ninjagaidenHelper.cpp" />
   </ItemGroup>

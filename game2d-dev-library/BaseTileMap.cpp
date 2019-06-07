@@ -3,6 +3,12 @@
 #include "Sprite.h"
 #include "BaseTileMap.h"
 
+BaseTileMap::~BaseTileMap()
+{
+	for (auto sprite : spriteSet)
+		delete sprite;
+}
+
 bool BaseTileMap::loadSpriteSet(Texture texture, Vector2 spriteSize)
 {
 	if (texture == NULL) return false;

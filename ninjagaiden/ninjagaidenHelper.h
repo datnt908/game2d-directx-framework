@@ -8,9 +8,6 @@
 #define SCREEN_H 279
 #define MAX_FPS 60
 
-#define MAP_POS Vector2(0, 176)
-
-
 
 /// Common
 class GameWorld;
@@ -18,9 +15,14 @@ class GameWorld;
 /// Immortal Objects
 class ImmortalObj;
 class TileMap;
+class Scoreboard;
 
 /// Constant & Enum
+
+#define MAP_POS Vector2(0, 176)
 #define TILEMAP_SPRITE_SIZE Vector2(16.f, 16.f)
+#define MAX_HEALTH 15
+#define MAX_PLAYERS 2
 
 #define STAGE_3_1_TEXTUREID 0001
 #define STAGE_3_2_TEXTUREID 0002
@@ -32,10 +34,24 @@ class TileMap;
 #define STAGE_3_2_TEXTUREFILE L"Resource/Maps/TileMap/Stage3-2_tileset.bmp"
 #define STAGE_3_3_TEXTUREFILE L"Resource/Maps/TileMap/Stage3-3_tileset.bmp"
 
+#define SCOREBAR_TEXTUREID 0004
+#define SCOREBAR_TEXTUREFILE L"Resource/ScoreBoard/scoreboard.bmp"
+#define SCOREBAR_TEXTURE_INFOFILE "Resource/ScoreBoard/scoreboard.txt"
+
 enum Stage {
 	_3_1 = 1,
 	_3_2 = 2,
 	_3_3 = 3
+};
+
+enum ItemKind {
+	Bonus500 = 0,
+	Bonus1000 = 1,
+	HealthRes = 2,
+	AddItems5 = 3,
+	AddItems10 = 4,
+	BlueDart = 5,
+	OrangeDart = 6
 };
 
 /// Support Functions

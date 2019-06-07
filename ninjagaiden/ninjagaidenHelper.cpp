@@ -17,5 +17,9 @@ bool loadAllTextures()
 		STAGE_3_3_TEXTUREID, STAGE_3_3_TEXTUREFILE, Color(255, 0, 255));
 	if (!result) return false;
 
+	result = textures->addTexture(
+		SCOREBAR_TEXTUREID, SCOREBAR_TEXTUREFILE, Color(255, 163, 177));
+	if (!result) return false;
+
 	return true;
 }

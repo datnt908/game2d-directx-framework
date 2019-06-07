@@ -33,6 +33,9 @@
     <ClInclude Include="ImmortalObj\TileMap.h">
       <Filter>Header Files\ImmortalObj</Filter>
     </ClInclude>
+    <ClInclude Include="ImmortalObj\Scoreboard.h">
+      <Filter>Header Files\ImmortalObj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -46,6 +49,9 @@
     </ClCompile>
     <ClCompile Include="ninjagaidenHelper.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImmortalObj\Scoreboard.cpp">
+      <Filter>Source Files\ImmortalObj</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
