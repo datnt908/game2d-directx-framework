@@ -13,6 +13,12 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\ImmortalObj">
+      <UniqueIdentifier>{7f8dda63-9d57-45c9-b586-bfadc95ddadd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ImmortalObj">
+      <UniqueIdentifier>{1a4e5ca7-72a9-4f2d-8a4c-f3612638bcca}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ninjagaidenHelper.h">
@@ -21,10 +27,16 @@
     <ClInclude Include="GameWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ImmortalObj\ImmortalObj.h">
+      <Filter>Header Files\ImmortalObj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ImmortalObj\ImmortalObj.cpp">
+      <Filter>Source Files\ImmortalObj</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

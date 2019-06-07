@@ -20,10 +20,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameWorld.h" />
+    <ClInclude Include="ImmortalObj\ImmortalObj.h" />
     <ClInclude Include="ninjagaidenHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp" />
+    <ClCompile Include="ImmortalObj\ImmortalObj.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -98,7 +100,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Object;$(ProjectDir)ImmortalObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>

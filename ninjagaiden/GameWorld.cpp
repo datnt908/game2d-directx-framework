@@ -1,4 +1,5 @@
 #include "GameWorld.h"
+#include "ImmortalObj.h"
 
 GameWorld* GameWorld::instance = NULL;
 
@@ -11,6 +12,7 @@ GameWorld * GameWorld::getInstance()
 
 bool GameWorld::initialize()
 {
+
 	return true;
 }
 

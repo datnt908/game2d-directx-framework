@@ -21,6 +21,7 @@ public:
 	virtual void update(float dtTime) = 0;
 	virtual void render() = 0;
 	/// Methods with Objects
+	void addObject(int objKind, LPGAMEOBJ gameObj);
 	void deleteObject(LPGAMEOBJ gameObj);
 	GAMEOBJS_V* getInProcObjs(int objKind);
 };
