@@ -90,7 +90,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions);_UNICODE;</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)directx-dev-library\Utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)directx-dev-library\Utility;$(SolutionDir)game2d-dev-library;$(SolutionDir)ninjagaiden;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
@@ -157,6 +157,12 @@
   <ItemGroup>
     <ProjectReference Include="..\directx-dev-library\directx-dev-library.vcxproj">
       <Project>{98cc82be-77c4-42fc-8c98-33dacb31c0be}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\game2d-dev-library\game2d-dev-library.vcxproj">
+      <Project>{a02eb005-62d0-4cdd-821d-52c3df296e9c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\ninjagaiden\ninjagaiden.vcxproj">
+      <Project>{129159b6-ab87-4c25-9fa2-67af85a7a3b6}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -3,6 +3,8 @@
 #include "DxInput.h"
 #include "DxSound.h"
 #include "inputHandler.h"
+#include "GameWorld.h"
+
 ATOM registerMyWindowClass(HINSTANCE hInstance);
 HWND createGameWindow(HINSTANCE hInstance, int nCmdShow);
 void loopMainMessage();
@@ -12,6 +14,7 @@ DxInput* directInput;
 DxSound* directSound;
 WinKeyHandler* keyHandler;
 WinMouseHandler* mouseHandler;
+BaseGameWorld* gameWorld;
 
 int WINAPI WinMain(
 	HINSTANCE hInstance,
@@ -19,31 +22,42 @@ int WINAPI WinMain(
 	LPSTR lpCmdLine,
 	int nCmdShow)
 {
+	int codeErr = 0;
 	HWND hWnd = createGameWindow(hInstance, nCmdShow);
-	if (hWnd == FALSE) return 1;
+	if (hWnd == FALSE) codeErr = 1;
 	if (!showWindow(hWnd, nCmdShow))
-		return 2;
+		codeErr = 2;
 
 	directGraphic = DxGraphic::getInstance();
 	if (!directGraphic->initialize(hWnd, IS_FULLSCREEN))
-		return 3;
+		codeErr = 3;
 
 	directInput = DxInput::getInstance();
 	keyHandler = new WinKeyHandler();
 	mouseHandler = new WinMouseHandler();
 	if (!directInput->initializeKeyb(keyHandler))
-		return 4;
+		codeErr = 4;
 	if (!directInput->initializeMouse(mouseHandler))
-		return 5;
+		codeErr = 5;
 
 	directSound = DxSound::getInstance();
 	if (!directSound->initialize())
-		return 6;
+		codeErr = 6;
 
-	loopMainMessage();
+	gameWorld = GameWorld::getInstance();
+	if (gameWorld == NULL || !gameWorld->initialize())
+		codeErr = 7;
+
+	if(codeErr == 0)
+		loopMainMessage();
 
 	delete directGraphic;
-	return 0;
+	delete directInput;
+	delete directSound;
+	delete keyHandler;
+	delete mouseHandler;
+	delete gameWorld;
+	return codeErr;
 }
 
 
@@ -66,7 +80,8 @@ void loopMainMessage()
 		{
 			frameStart = now;
 			directInput->processInput();
-			
+			gameWorld->update(deltaTime / 1000.f);
+			gameWorld->render();
 		}
 		else
 			Sleep(tickPerFrame - deltaTime);
