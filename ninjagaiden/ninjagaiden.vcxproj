@@ -105,7 +105,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
     </ClCompile>
     <Link>

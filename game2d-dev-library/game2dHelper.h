@@ -72,3 +72,7 @@ Vector2 transformViewToWorld(Vector2 viewPos, Vector2 originPos);
 INTS getUnionInt(INTS v1, INTS v2);
 STRINGS readFileText(string filepath);
 Vector2 getTextureSize(Texture texture);
+// In ra màn hình Output
+void printOnOutput(LPCWSTR format, ...);
+// In ra màn hình Output thông tin BoundaryBox
+void printBndBoxOutput(BoundaryBox bb);

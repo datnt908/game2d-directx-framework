@@ -1,9 +1,8 @@
 #include "ImmortalObj.h"
 
-void ImmortalObj::update(float dtTime)
+ImmortalObj::ImmortalObj(Vector2 position, Vector2 size)
 {
-}
-
-void ImmortalObj::render(Vector2 camera)
-{
+	this->position = position;
+	this->size = size;
+	this->velocity = Vector2(0, 0);
 }

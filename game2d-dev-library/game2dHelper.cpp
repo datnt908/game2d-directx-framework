@@ -183,3 +183,21 @@ Vector2 getTextureSize(Texture texture)
 	texture->GetLevelDesc(0, &surfaceDesc);
 	return Vector2((float)surfaceDesc.Width, (float)surfaceDesc.Height);
 }
+
+void printOnOutput(LPCWSTR format, ...)
+{
+	va_list argp;
+	va_start(argp, format);
+	wchar_t dbg_out[4096];
+	vswprintf_s(dbg_out, format, argp);
+	va_end(argp);
+	OutputDebugString(dbg_out);
+}
+
+void printBndBoxOutput(BoundaryBox bb)
+{
+	printOnOutput(L"BB.Position = (%4.3f, %4.3f) - ", bb.position.x, bb.position.y);
+	printOnOutput(L"BB.Size = (%4.3f, %4.3f) - ", bb.size.x, bb.size.y);
+	printOnOutput(L"BB.Displayment = (%4.3f, %4.3f) - ", bb.dtPosition.x, bb.dtPosition.y);
+	printOnOutput(L"\n");
+}

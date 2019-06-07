@@ -33,6 +33,12 @@ class Scoreboard;
 #define STAGE_3_1_TEXTUREFILE L"Resource/Maps/TileMap/Stage3-1_tileset.bmp"
 #define STAGE_3_2_TEXTUREFILE L"Resource/Maps/TileMap/Stage3-2_tileset.bmp"
 #define STAGE_3_3_TEXTUREFILE L"Resource/Maps/TileMap/Stage3-3_tileset.bmp"
+#define STAGE_3_1_GRID_FILE "Resource/Maps/SpacePartitioning/Stage3_1_Grid.txt"
+#define STAGE_3_2_GRID_FILE "Resource/Maps/SpacePartitioning/Stage3_2_Grid.txt"
+#define STAGE_3_3_GRID_FILE "Resource/Maps/SpacePartitioning/Stage3_3_Grid.txt"
+#define STAGE_3_1_OBJS_FILE "Resource/Maps/SpacePartitioning/Stage3_1_ObjectsList.txt"
+#define STAGE_3_2_OBJS_FILE "Resource/Maps/SpacePartitioning/Stage3_2_ObjectsList.txt"
+#define STAGE_3_3_OBJS_FILE "Resource/Maps/SpacePartitioning/Stage3_3_ObjectsList.txt"
 
 #define SCOREBAR_TEXTUREID 0004
 #define SCOREBAR_TEXTUREFILE L"Resource/ScoreBoard/scoreboard.bmp"
@@ -52,6 +58,14 @@ enum ItemKind {
 	AddItems10 = 4,
 	BlueDart = 5,
 	OrangeDart = 6
+};
+
+enum ObjKind {
+	Ground = 0,
+	Stair = 1,
+	Wall = 12,
+	Gate = 13,
+	Water = 14
 };
 
 /// Support Functions

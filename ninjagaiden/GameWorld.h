@@ -13,6 +13,7 @@ private:
 /// Methods
 private:
 	bool loadResource();
+	bool loadGameObjs(Stage stage);
 public:
 	/// Common
 	static GameWorld* getInstance();

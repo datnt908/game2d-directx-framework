@@ -3,10 +3,9 @@
 
 class ImmortalObj : public GameObject
 {
-/// Attributes
-
-
 /// Methods
-	void update(float dtTime);
-	void render(Vector2 camera);
+public:
+	ImmortalObj(Vector2 position, Vector2 size);
+	void update(float dtTime) {}
+	void render(Vector2 camera) {}
 };
