@@ -1,9 +1,9 @@
-﻿#include "winmainHelper.h"
-#include "DxGraphic.h"
+﻿#include "DxGraphic.h"
 #include "DxInput.h"
 #include "DxSound.h"
 #include "inputHandler.h"
 #include "GameWorld.h"
+#include "winmainHelper.h"
 
 ATOM registerMyWindowClass(HINSTANCE hInstance);
 HWND createGameWindow(HINSTANCE hInstance, int nCmdShow);

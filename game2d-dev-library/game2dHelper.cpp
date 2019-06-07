@@ -71,3 +71,10 @@ STRINGS readFileText(string filepath)
 
 	return lines;
 }
+
+Vector2 getTextureSize(Texture texture)
+{
+	D3DSURFACE_DESC surfaceDesc;
+	texture->GetLevelDesc(0, &surfaceDesc);
+	return Vector2((float)surfaceDesc.Width, (float)surfaceDesc.Height);
+}

@@ -21,6 +21,10 @@ struct BroadphaseBox {
 };
 
 /// Graphic
+class TextureCollection;
+class Sprite;
+class Animation;
+class AnimationCollection;
 
 /// Object
 class GameObject;
@@ -31,6 +35,7 @@ class Node;
 
 /// Common
 class BaseGameWorld;
+class BaseTileMap;
 
 /// typedef
 typedef vector<int> INTS;
@@ -40,6 +45,12 @@ typedef struct BroadphaseBox BOX;
 typedef class BoundaryBox BndBox;
 typedef class CollisionEvent COLLIEVENT;
 typedef class SpacePartitioning SPACE;
+typedef class TextureCollection TEXTURES;
+typedef vector<Sprite*> SPRITES;
+typedef class Animation* LPANI;
+typedef class AnimationCollection* LPANIS;
+// Con trỏ hàm cho event kết thúc 1 animation
+typedef void(*EndAnimationEvent)();
 // Con trỏ Base Class phân hoạch không gian
 typedef class BasePartitioning* LPSPACE;
 // GameObjects dưới dạng mảng thứ tự
@@ -59,3 +70,4 @@ Vector2 transformViewToWorld(Vector2 viewPos, Vector2 originPos);
 // Lấy phép hội 2 tập hợp số nguyên
 INTS getUnionInt(INTS v1, INTS v2);
 STRINGS readFileText(string filepath);
+Vector2 getTextureSize(Texture texture);

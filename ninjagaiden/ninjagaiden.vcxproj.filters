@@ -30,6 +30,9 @@
     <ClInclude Include="ImmortalObj\ImmortalObj.h">
       <Filter>Header Files\ImmortalObj</Filter>
     </ClInclude>
+    <ClInclude Include="ImmortalObj\TileMap.h">
+      <Filter>Header Files\ImmortalObj</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -37,6 +40,12 @@
     </ClCompile>
     <ClCompile Include="ImmortalObj\ImmortalObj.cpp">
       <Filter>Source Files\ImmortalObj</Filter>
+    </ClCompile>
+    <ClCompile Include="ImmortalObj\TileMap.cpp">
+      <Filter>Source Files\ImmortalObj</Filter>
+    </ClCompile>
+    <ClCompile Include="ninjagaidenHelper.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

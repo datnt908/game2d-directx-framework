@@ -57,6 +57,21 @@
     <ClInclude Include="Space\SpacePartitioning.h">
       <Filter>Header Files\Space</Filter>
     </ClInclude>
+    <ClInclude Include="Graphic\TextureCollection.h">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic\Sprite.h">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic\Animation.h">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphic\AnimationCollection.h">
+      <Filter>Header Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseTileMap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="BaseGameWorld.cpp">
@@ -76,6 +91,21 @@
     </ClCompile>
     <ClCompile Include="Space\SpacePartitioning.cpp">
       <Filter>Source Files\Space</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic\TextureCollection.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic\Sprite.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic\AnimationCollection.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic\Animation.cpp">
+      <Filter>Source Files\Graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseTileMap.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

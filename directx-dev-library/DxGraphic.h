@@ -5,6 +5,7 @@
 // Class DxGraphic dành cho xử lý đồ họa
 class DxGraphic
 {
+	friend class GameWorld;
 /// Attributes
 private:
 	static DxGraphic* instance;
