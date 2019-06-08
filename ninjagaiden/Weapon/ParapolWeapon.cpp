@@ -3,13 +3,7 @@
 
 void ParapolWeapon::update(float dtTime)
 {
-	timeToDie -= dtTime;
-	if (timeToDie <= 0)
-	{
-		GameWorld::getInstance()->deleteObject(this);
-		return;
-	}
-
+	BaseWeapon::update(dtTime);
 	velocity.y += dtTime * -FALL_SPEED;
 	position += dtTime * velocity;
 }

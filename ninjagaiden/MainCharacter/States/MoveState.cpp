@@ -11,7 +11,8 @@ void MoveState::update(float dtTime)
 
 	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
-	handleCollisionWithEnemiesAndWeapons(dtTime);
+	handleCollisionWithEnemies(dtTime);
+	handleCollisionWithWeapons(dtTime);
 }
 
 void MoveState::handleKeyInput(bool keyStates[])

@@ -18,11 +18,14 @@ class ImmortalObj;
 class TileMap;
 class Scoreboard;
 
-/// Enemies and Weapon
+/// Weapons
 class BaseWeapon;
 class StraightWeapon;
 class BoomerangWeapon;
 class ParapolWeapon;
+
+/// Enemies
+class BaseEnemy;
 
 /// Item
 class Item;
@@ -36,9 +39,9 @@ class Item;
 
 #define FALL_SPEED 450
 
-#define STAGE_3_1_TEXTUREID 0001
-#define STAGE_3_2_TEXTUREID 0002
-#define STAGE_3_3_TEXTUREID 0003
+#define STAGE_3_1_TEXTUREID 0x001
+#define STAGE_3_2_TEXTUREID 0x002
+#define STAGE_3_3_TEXTUREID 0x003
 #define STAGE_3_1_MATRIXFILE "Resource/Maps/TileMap/Stage3-1_matrixmap.txt"
 #define STAGE_3_2_MATRIXFILE "Resource/Maps/TileMap/Stage3-2_matrixmap.txt"
 #define STAGE_3_3_MATRIXFILE "Resource/Maps/TileMap/Stage3-3_matrixmap.txt"
@@ -52,21 +55,25 @@ class Item;
 #define STAGE_3_2_OBJS_FILE "Resource/Maps/SpacePartitioning/Stage3_2_ObjectsList.txt"
 #define STAGE_3_3_OBJS_FILE "Resource/Maps/SpacePartitioning/Stage3_3_ObjectsList.txt"
 
-#define SCOREBAR_TEXTUREID 0004
+#define SCOREBAR_TEXTUREID 0x004
 #define SCOREBAR_TEXTUREFILE L"Resource/ScoreBoard/scoreboard.bmp"
 #define SCOREBAR_TEXTURE_INFOFILE "Resource/ScoreBoard/scoreboard.txt"
 
-#define MAINCHAR_TEXTUREID 0005
+#define MAINCHAR_TEXTUREID 0x005
 #define MAINCHAR_TEXTUREFILE L"Resource/MainChar/MainCharacter.bmp"
 #define MAINCHAR_TEXTUREINFO_FILE "Resource/MainChar/MainCharacter.txt"
 
-#define ITEMS_TEXTUREID 0006
+#define ITEMS_TEXTUREID 0x006
 #define ITEMS_TEXTUREFILE L"Resource/Item/Items.bmp"
 #define ITEMS_TEXTUREINFO_FILE "Resource/Item/Items.txt"
 
-#define WEAPONS_TEXTUREID 0007
+#define WEAPONS_TEXTUREID 0x007
 #define WEAPONS_TEXTUREFILE L"Resource/Weapon/Weapons.bmp"
 #define WEAPONS_TEXTUREINFO_FILE "Resource/Weapon/Weapons.txt"
+
+#define ENEMIES_TEXTUREID 0x008
+#define ENEMIES_TEXTUREFILE L"Resource/Enemies/Enemies.bmp"
+#define ENEMIES_TEXTUREINFO_FILE "Resource/Enemies/Enemies.txt"
 
 enum Stage {
 	_3_1 = 1,
@@ -87,6 +94,14 @@ enum ItemKind {
 enum ObjKind {
 	Ground = 0,
 	Stair = 1,
+	Enemy1 = 2,
+	Enemy2 = 3,
+	Enemy3 = 4,
+	Enemy4 = 5,
+	Enemy5 = 6,
+	Enemy6 = 7,
+	Enemy7 = 8,
+	Boss = 9,
 	Item1 = 10,
 	Item2 = 11,
 	Wall = 12,

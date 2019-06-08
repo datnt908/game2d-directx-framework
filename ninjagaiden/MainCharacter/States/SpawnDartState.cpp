@@ -15,7 +15,8 @@ void SpawnDartState::update(float dtTime)
 
 	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
-	handleCollisionWithEnemiesAndWeapons(dtTime);
+	handleCollisionWithEnemies(dtTime);
+	handleCollisionWithWeapons(dtTime);
 }
 
 void SpawnDartState::handleKeyInput(bool keyStates[])

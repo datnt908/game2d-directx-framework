@@ -8,7 +8,8 @@ enum WeaponIcon {
 	Weapon6 = 2,
 	WeaponB = 3,
 	WpBlueDart = 4,
-	WpOraDart = 5
+	WpOraDart = 5,
+	Explosion = 6
 };
 
 class BaseWeapon : public InteractiveObj
@@ -16,6 +17,7 @@ class BaseWeapon : public InteractiveObj
 /// Attributes
 protected:
 	static unordered_map<int,Sprite*> sprites;
+	bool isExplosion;
 public:
 	WeaponIcon icon;
 	float timeToDie;
@@ -26,6 +28,8 @@ public:
 	static bool loadResource();
 	static void releaseResource();
 	void render(Vector2 camera);
+	void update(float dtTime);
+	BndBox getBndBox(float dtTime);
 	/// For game
-	void onCollision(bool isAtkTruth);
+	void onCollision(bool isExplosive = false);
 };

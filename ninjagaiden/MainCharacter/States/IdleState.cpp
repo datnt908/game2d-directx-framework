@@ -6,7 +6,8 @@ void IdleState::update(float dtTime)
 {
 	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
-	handleCollisionWithEnemiesAndWeapons(dtTime);
+	handleCollisionWithEnemies(dtTime);
+	handleCollisionWithWeapons(dtTime);
 }
 
 void IdleState::handleKeyInput(bool keyStates[])

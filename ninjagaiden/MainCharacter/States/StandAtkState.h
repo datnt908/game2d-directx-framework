@@ -9,6 +9,7 @@ private:
 	void update(float dtTime);
 	void handleCollisionWithBoss(float dtTime);
 	void handleCollisionWithItems(float dtTime);
-	void handleCollisionWithEnemiesAndWeapons(float dtTime);
+	void handleCollisionWithEnemies(float dtTime);
+	void handleCollisionWithWeapons(float dtTime);
 	Vector2 handleCollisionWithGround(float dtTime);
 };

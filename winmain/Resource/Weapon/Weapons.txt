@@ -5,3 +5,4 @@ kind left top right bottom centerx centery
 3 81 9 86 14 2 2
 4 102 9 110 16 4 3
 5 115 3 131 19 8 8
+6 139 4 155 20 8 8

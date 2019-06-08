@@ -54,7 +54,8 @@ protected:
 	virtual void handleCollisionWithGate(float dtTime);
 	virtual void handleCollisionWithWater(float dtTime);
 	virtual void handleCollisionWithItems(float dtTime);
-	virtual void handleCollisionWithEnemiesAndWeapons(float dtTime);
+	virtual void handleCollisionWithEnemies(float dtTime);
+	virtual void handleCollisionWithWeapons(float dtTime);
 	virtual Vector2 handleCollisionWithWall(float dtTime);
 	virtual Vector2 handleCollisionWithGround(float dtTime);
 public:

@@ -7,6 +7,7 @@
 #include "TileMap.h"
 #include "Scoreboard.h"
 #include "Item.h"
+#include "BossEnemy.h"
 #include "BaseWeapon.h"
 #include "MainCharacter.h"
 #include "GameWorld.h"
@@ -16,7 +17,7 @@ GameWorld* GameWorld::instance = NULL;
 bool GameWorld::loadResource()
 {
 	if (!loadAllTextures()) return false;
-
+	
 	if (!scorebar->loadResource()) return false;
 
 	if (!mainChar->loadResource()) return false;
@@ -24,6 +25,8 @@ bool GameWorld::loadResource()
 	if (!Item::loadResource()) return false;
 
 	if (!BaseWeapon::loadResource()) return false;
+
+	if (!BaseEnemy::loadResource()) return false;
 
 	return true;
 }
@@ -40,6 +43,7 @@ GameWorld::~GameWorld()
 	TextureCollection* textures = TextureCollection::getInstance();
 	Item::releaseResource();
 	BaseWeapon::releaseResource();
+	BaseEnemy::releaseResource();
 	delete tileMap;
 	delete scorebar;
 	delete textures;
@@ -96,11 +100,11 @@ void GameWorld::render()
 
 bool GameWorld::newGame()
 {
-	if (!tileMap->loadStage(Stage::_3_1))
+	if (!tileMap->loadStage(Stage::_3_3))
 		return false;
 	
-	spacePart.loadFromFile(STAGE_3_1_GRID_FILE, MAP_POS);
-	if(!loadGameObjs(Stage::_3_1))
+	spacePart.loadFromFile(STAGE_3_3_GRID_FILE, MAP_POS);
+	if(!loadGameObjs(Stage::_3_3))
 		return false;
 	
 	mainChar->initialize();
@@ -214,6 +218,10 @@ bool GameWorld::loadGameObjs(Stage stage)
 		case ObjKind::Item1:
 		case ObjKind::Item2:
 			obj = new Item((ObjKind)(id / OBJ_KIND_WEIGHT), LeftBot_wP);
+			this->gameObjects[id] = obj;
+			break;
+		case ObjKind::Boss:
+			obj = new BossEnemy(LeftBot_wP, Vector2(width, height));
 			this->gameObjects[id] = obj;
 			break;
 		default:

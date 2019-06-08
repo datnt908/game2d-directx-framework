@@ -18,7 +18,8 @@ void ClimbState::update(float dtTime)
 
 	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
-	handleCollisionWithEnemiesAndWeapons(dtTime);
+	handleCollisionWithEnemies(dtTime);
+	handleCollisionWithWeapons(dtTime);
 }
 
 void ClimbState::handleCollisionWithStair(float dtTime)

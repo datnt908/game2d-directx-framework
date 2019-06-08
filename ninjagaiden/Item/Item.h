@@ -36,5 +36,5 @@ public:
 	void render(Vector2 camera);
 	BndBox getBndBox(float dtTime);
 	/// For game
-	void onColliWithMainChar(bool isAtkTruth);
+	void onColliWithMainChar(bool isAtkTruth = false);
 };

@@ -33,5 +33,9 @@ bool loadAllTextures()
 		WEAPONS_TEXTUREID, WEAPONS_TEXTUREFILE, Color(255, 174, 201));
 	if (!result) return false;
 
+	result = textures->addTexture(
+		ENEMIES_TEXTUREID, ENEMIES_TEXTUREFILE, Color(255, 163, 177));
+	if (!result) return false;
+
 	return true;
 }

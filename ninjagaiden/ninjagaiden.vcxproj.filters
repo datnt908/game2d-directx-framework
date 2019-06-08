@@ -43,6 +43,12 @@
     <Filter Include="Header Files\Weapon">
       <UniqueIdentifier>{c210b49e-69c2-43a6-b8e5-a8ac45dbac47}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Enemy">
+      <UniqueIdentifier>{1033d8e4-b321-4eb5-a2ec-39610a917223}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Enemy">
+      <UniqueIdentifier>{9fc86b68-52c3-45c1-9b66-f1d893b00a7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ninjagaidenHelper.h">
@@ -108,6 +114,12 @@
     <ClInclude Include="MainCharacter\States\SpawnDartState.h">
       <Filter>Header Files\MainCharacter\States</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy\BaseEnemy.h">
+      <Filter>Header Files\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy\BossEnemy.h">
+      <Filter>Header Files\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -170,8 +182,14 @@
     <ClCompile Include="Weapon\ParapolWeapon.cpp">
       <Filter>Source Files\Weapon</Filter>
     </ClCompile>
+    <ClCompile Include="Enemy\BaseEnemy.cpp">
+      <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
     <ClCompile Include="MainCharacter\States\SpawnDartState.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\BossEnemy.cpp">
+      <Filter>Source Files\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

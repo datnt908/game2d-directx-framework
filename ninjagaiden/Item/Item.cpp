@@ -1,4 +1,4 @@
-#include <sstream>
+﻿#include <sstream>
 #include "BoundaryBox.h"
 #include "CollisionEvent.h"
 #include "TextureCollection.h"
@@ -167,6 +167,7 @@ BndBox Item::getBndBox(float dtTime)
 	return bb;
 }
 
+// Nếu truyền vào true tức item được đánh để rơi ra
 void Item::onColliWithMainChar(bool isAtkTruth)
 {
 	Scoreboard* scoreBar = Scoreboard::getInstance();

@@ -23,7 +23,8 @@ void JumpState::update(float dtTime)
 	handleCollisionWithStair(dtTime);
 	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
-	handleCollisionWithEnemiesAndWeapons(dtTime);
+	handleCollisionWithEnemies(dtTime);
+	handleCollisionWithWeapons(dtTime);
 }
 
 void JumpState::handleCollisionWithStair(float dtTime)

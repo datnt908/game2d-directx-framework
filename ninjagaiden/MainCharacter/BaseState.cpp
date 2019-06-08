@@ -15,6 +15,7 @@
 #include "SpawnDartState.h"
 #include "MainCharacter.h"
 #include "Item.h"
+#include "BaseEnemy.h"
 #include "StraightWeapon.h"
 #include "BoomerangWeapon.h"
 #include "ParapolWeapon.h"
@@ -33,7 +34,10 @@ SpawnDartState BaseState::spawningWp;
 
 void BaseState::handleCollisionWithBoss(float dtTime)
 {
-	
+	COLLIEVENTS coEvents;
+	coEvents = MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Boss, dtTime);
+	if (coEvents.size())
+		setState(MainCharacterState::Immortal);
 }
 
 void OnEndAttackAnimation()
@@ -174,11 +178,42 @@ void BaseState::handleCollisionWithItems(float dtTime)
 		((Item*)(coEvent->gameObj))->onColliWithMainChar(false);
 }
 
-void BaseState::handleCollisionWithEnemiesAndWeapons(float dtTime)
+void BaseState::handleCollisionWithEnemies(float dtTime)
 {
+	COLLIEVENTS tempCoEvents;
+	COLLIEVENTS coEvents;
+	MainCharacter* mainChar = MainCharacter::getInstance();
+	for (unsigned int i = 2; i <= 8; i++)
+	{
+		tempCoEvents = mainChar->getColliWithObjsByKind((ObjKind)i, dtTime);
+		coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
+	}
 	
+	for (auto coEvent : coEvents)
+		((BaseEnemy*)(coEvent->gameObj))->onCollision();
+
+	if (coEvents.size() != 0)
+		setState(MainCharacterState::Immortal);
 }
 
+void BaseState::handleCollisionWithWeapons(float dtTime)
+{
+	COLLIEVENTS tempCoEvents;
+	COLLIEVENTS coEvents;
+	MainCharacter* mainChar = MainCharacter::getInstance();
+
+	for (unsigned int i = 15; i <= 17; i++)
+	{
+		tempCoEvents = mainChar->getColliWithObjsByKind((ObjKind)i, dtTime);
+		coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
+	}
+
+	for (auto coEvent : coEvents)
+		((BaseWeapon*)(coEvent->gameObj))->onCollision();
+
+	if (coEvents.size() != 0)
+		setState(MainCharacterState::Immortal);
+}
 
 void BaseState::setState(MainCharacterState state)
 {

@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Enemy\BaseEnemy.h" />
+    <ClInclude Include="Enemy\BossEnemy.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="ImmortalObj\ImmortalObj.h" />
     <ClInclude Include="ImmortalObj\Scoreboard.h" />
@@ -42,6 +44,8 @@
     <ClInclude Include="Weapon\StraightWeapon.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Enemy\BaseEnemy.cpp" />
+    <ClCompile Include="Enemy\BossEnemy.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="ImmortalObj\ImmortalObj.cpp" />
     <ClCompile Include="ImmortalObj\Scoreboard.cpp" />
@@ -137,7 +141,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;$(ProjectDir)Item;$(ProjectDir)MainCharacter;$(ProjectDir)MainCharacter\States;$(ProjectDir)Weapon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;$(ProjectDir)Item;$(ProjectDir)MainCharacter;$(ProjectDir)MainCharacter\States;$(ProjectDir)Weapon;$(ProjectDir)Enemy;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>

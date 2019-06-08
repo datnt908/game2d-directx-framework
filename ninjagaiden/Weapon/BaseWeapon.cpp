@@ -3,7 +3,9 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
+#include "BoundaryBox.h"
 #include "BaseWeapon.h"
+#include "GameWorld.h"
 
 unordered_map<int, Sprite*> BaseWeapon::sprites;
 
@@ -49,8 +51,34 @@ void BaseWeapon::render(Vector2 camera)
 	Vector2 viewPos = transformWorldToView(position, camera);
 	sprites[icon]->setRotate(timeToDie * 360.f);
 	sprites[icon]->render(viewPos);
+	if (timeToDie <= 0)
+		if (isExplosion)
+			sprites[Explosion]->render(viewPos);
 }
 
-void BaseWeapon::onCollision(bool isAtkTruth)
+void BaseWeapon::update(float dtTime)
 {
+	timeToDie -= dtTime;
+	if (timeToDie <= -0.1f)
+		GameWorld::getInstance()->deleteObject(this);
+}
+
+BndBox BaseWeapon::getBndBox(float dtTime)
+{
+	if(timeToDie <= 0) return BndBox();
+	Vector2 center;
+	BndBox bb;
+	center = sprites[icon]->getCenter();
+	bb.size = sprites[icon]->getSize();
+	Vector2 positionTransfered = transformViewToWorld(center, Vector2(0, bb.size.y));
+	bb.position = position - positionTransfered;
+	bb.dtPosition = velocity * dtTime;
+	return bb;
+}
+
+void BaseWeapon::onCollision(bool isExplosive)
+{
+	timeToDie = 0;
+	if(isExplosive)
+		this->isExplosion = true;
 }

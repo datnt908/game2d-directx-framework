@@ -4,12 +4,7 @@
 
 void BoomerangWeapon::update(float dtTime)
 {
-	timeToDie -= dtTime;
-	if (timeToDie <= 0)
-	{
-		GameWorld::getInstance()->deleteObject(this);
-		return;
-	}
+	BaseWeapon::update(dtTime);
 	MainCharacter* mainChar = MainCharacter::getInstance();
 	cycle = cycle <= 0 ? CYCLE_TIME : cycle - dtTime;
 	center = mainChar->position + DT_POSITION_SPAWN_WP;
