@@ -9,6 +9,8 @@
 #include "Item.h"
 #include "BaseWeapon.h"
 #include "BaseEnemy.h"
+#include "MovingEnemy.h"
+#include "StandingEnemy.h"
 #include "MainCharacter.h"
 #include "GameWorld.h"
 
@@ -218,6 +220,19 @@ bool GameWorld::loadGameObjs(Stage stage)
 		case ObjKind::Item1:
 		case ObjKind::Item2:
 			obj = new Item((ObjKind)(id / OBJ_KIND_WEIGHT), LeftBot_wP);
+			this->gameObjects[id] = obj;
+			break;
+		case ObjKind::Enemy1:
+		case ObjKind::Enemy3:
+		case ObjKind::Enemy6:
+			obj = new StandingEnemy((ObjKind)(id / OBJ_KIND_WEIGHT), LeftBot_wP);
+			this->gameObjects[id] = obj;
+			break;
+		case ObjKind::Enemy2:
+		case ObjKind::Enemy4:
+		case ObjKind::Enemy5:
+		case ObjKind::Enemy7:
+			obj = new MovingEnemy((ObjKind)(id / OBJ_KIND_WEIGHT), LeftBot_wP, Vector2(width, height));
 			this->gameObjects[id] = obj;
 			break;
 		default:

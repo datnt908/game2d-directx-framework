@@ -174,7 +174,11 @@ void Item::onColliWithMainChar(bool isAtkTruth)
 	switch (state)
 	{
 	case Wait:
-		if (isAtkTruth) state = Drop;
+		if (isAtkTruth)
+		{
+			state = Drop;
+			velocity.y = 100;
+		}
 		break;
 	case Drop:
 		if (isAtkTruth) return;

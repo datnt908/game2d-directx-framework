@@ -182,9 +182,6 @@ void BaseState::handleCollisionWithEnemies(float dtTime)
 		coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
 	}
 	
-	for (auto coEvent : coEvents)
-		((BaseEnemy*)(coEvent->gameObj))->onCollision();
-
 	if (coEvents.size() != 0)
 		setState(MainCharacterState::Immortal);
 }

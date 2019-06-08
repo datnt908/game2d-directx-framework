@@ -51,7 +51,8 @@ void BaseWeapon::releaseResource()
 void BaseWeapon::render(Vector2 camera)
 {
 	Vector2 viewPos = transformWorldToView(position, camera);
-	sprites[icon]->setRotate(timeToDie * 360.f);
+	if(icon != WeaponIcon::Weapon3 && icon != WeaponIcon::Weapon6)
+		sprites[icon]->setRotate(timeToDie * 360.f);
 	sprites[icon]->render(viewPos);
 	if (timeToDie <= 0)
 		if (isExplosion)

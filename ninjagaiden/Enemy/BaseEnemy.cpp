@@ -3,6 +3,7 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
+#include "BoundaryBox.h"
 #include "BaseEnemy.h"
 #include "GameWorld.h"
 
@@ -49,6 +50,20 @@ void BaseEnemy::onCollision()
 	state = EnemyState::DEAD;
 }
 
+BndBox BaseEnemy::getBndBox(float dtTime)
+{
+	if (state == EnemyState::DEAD) return BndBox();
+	BndBox bb; Vector2 center;
+	center = anicollectS[enemyKind]->getAnimation(state)->getCurFrameCenter();
+	bb.size = anicollectS[enemyKind]->getAnimation(state)->getCurFrameSize();;
+	if (direction == -1)
+		center.x = bb.size.x - center.x;
+	Vector2 positionTransfered = transformViewToWorld(center, Vector2(0, bb.size.y));
+	bb.position = position - positionTransfered;
+	bb.dtPosition = velocity * dtTime;
+	return bb;
+}
+
 void BaseEnemy::releaseResource()
 {
 	for (auto animations :  anicollectS)
@@ -59,6 +74,9 @@ BaseEnemy::BaseEnemy(ObjKind kind, Vector2 position)
 {
 	enemyKind = kind;
 	this->position = position;
+	this->velocity = Vector2(0, 0);
+	state = EnemyState::MOVE;
+	timeToDie = ENEMIES_TIME_TO_DIE;
 }
 
 void BaseEnemy::updateDeadState(float dtTime)
