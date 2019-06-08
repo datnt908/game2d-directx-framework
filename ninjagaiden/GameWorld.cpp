@@ -11,6 +11,7 @@
 #include "BaseEnemy.h"
 #include "MovingEnemy.h"
 #include "StandingEnemy.h"
+#include "BossEnemy.h"
 #include "MainCharacter.h"
 #include "GameWorld.h"
 
@@ -233,6 +234,10 @@ bool GameWorld::loadGameObjs(Stage stage)
 		case ObjKind::Enemy5:
 		case ObjKind::Enemy7:
 			obj = new MovingEnemy((ObjKind)(id / OBJ_KIND_WEIGHT), LeftBot_wP, Vector2(width, height));
+			this->gameObjects[id] = obj;
+			break;
+		case ObjKind::Boss:
+			obj = new BossEnemy(LeftBot_wP, Vector2(width, height));
 			this->gameObjects[id] = obj;
 			break;
 		default:

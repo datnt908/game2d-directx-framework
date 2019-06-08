@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy\BaseEnemy.h" />
+    <ClInclude Include="Enemy\BossEnemy.h" />
     <ClInclude Include="Enemy\MovingEnemy.h" />
     <ClInclude Include="Enemy\StandingEnemy.h" />
     <ClInclude Include="GameWorld.h" />
@@ -46,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Enemy\BaseEnemy.cpp" />
+    <ClCompile Include="Enemy\BossEnemy.cpp" />
     <ClCompile Include="Enemy\MovingEnemy.cpp" />
     <ClCompile Include="Enemy\StandingEnemy.cpp" />
     <ClCompile Include="GameWorld.cpp" />

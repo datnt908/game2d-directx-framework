@@ -123,6 +123,9 @@
     <ClInclude Include="Enemy\StandingEnemy.h">
       <Filter>Header Files\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="Enemy\BossEnemy.h">
+      <Filter>Header Files\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -196,6 +199,9 @@
     </ClCompile>
     <ClCompile Include="Enemy\MovingEnemy.cpp">
       <Filter>Source Files\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy\BossEnemy.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
