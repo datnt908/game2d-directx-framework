@@ -1,9 +1,17 @@
-#pragma once
+﻿#pragma once
 #include "InteractiveObj.h"
 
 #define MAINCHAR_MOVE_SPEED 75
 #define MAINCHAR_JUMP_SPEED 200
 #define MAINCHAR_REVERSE_SPEED 10
+#define MAINCHAR_TIME_SPAWN_WP 3.f
+#define BLUEDART_SPEED 250
+#define BLUEDART_TIMETODIE 2.f
+#define BLUEDART_CONSUM 3
+#define ORANGEDART_SPEED 200
+#define ORANGEDART_TIMETODIE 4.f
+#define ORANGEDART_CONSUM 5
+#define DT_POSITION_SPAWN_WP Vector2(10, 20)
 
 class BaseState;
 class IdleState;
@@ -13,6 +21,7 @@ class JumpState;
 class ClimbState;
 class DuckAtkState;
 class StandAtkState;
+class SpawnDartState;
 class ImmortalState;
 
 class MainCharacter : public InteractiveObj
@@ -25,6 +34,7 @@ class MainCharacter : public InteractiveObj
 	friend class ClimbState;
 	friend class DuckAtkState;
 	friend class StandAtkState;
+	friend class SpawnDartState;
 	friend class ImmortalState;
 
 /// Attributes

@@ -44,6 +44,9 @@ void MoveState::handleKeyInput(bool keyStates[])
 		MainCharacter::getInstance()->velocity.x = 0;
 	}
 
+	if (keyStates[DIK_Z])
+		setState(MainCharacterState::SpawnDart);
+
 	if (keyStates[DIK_UP])
 	{
 		setState(MainCharacterState::Jump);

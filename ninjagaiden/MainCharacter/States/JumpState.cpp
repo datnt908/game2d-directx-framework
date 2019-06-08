@@ -56,4 +56,7 @@ void JumpState::handleKeyInput(bool keyStates[])
 
 	if (keyStates[DIK_SPACE])
 		setState(MainCharacterState::StandAtk);
+
+	if (keyStates[DIK_Z])
+		setState(MainCharacterState::SpawnDart);
 }

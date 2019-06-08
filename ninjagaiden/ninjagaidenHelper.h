@@ -18,6 +18,12 @@ class ImmortalObj;
 class TileMap;
 class Scoreboard;
 
+/// Enemies and Weapon
+class BaseWeapon;
+class StraightWeapon;
+class BoomerangWeapon;
+class ParapolWeapon;
+
 /// Item
 class Item;
 
@@ -58,6 +64,10 @@ class Item;
 #define ITEMS_TEXTUREFILE L"Resource/Item/Items.bmp"
 #define ITEMS_TEXTUREINFO_FILE "Resource/Item/Items.txt"
 
+#define WEAPONS_TEXTUREID 0007
+#define WEAPONS_TEXTUREFILE L"Resource/Weapon/Weapons.bmp"
+#define WEAPONS_TEXTUREINFO_FILE "Resource/Weapon/Weapons.txt"
+
 enum Stage {
 	_3_1 = 1,
 	_3_2 = 2,
@@ -81,7 +91,10 @@ enum ObjKind {
 	Item2 = 11,
 	Wall = 12,
 	Gate = 13,
-	Water = 14
+	Water = 14,
+	StraightWp = 15,
+	BoomerangWp = 16,
+	ParabolWp = 17
 };
 
 

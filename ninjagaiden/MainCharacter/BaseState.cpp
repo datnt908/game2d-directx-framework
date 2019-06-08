@@ -12,10 +12,13 @@
 #include "DuckAtkState.h"
 #include "StandAtkState.h"
 #include "ImmortalState.h"
+#include "SpawnDartState.h"
 #include "MainCharacter.h"
 #include "Item.h"
+#include "StraightWeapon.h"
+#include "BoomerangWeapon.h"
+#include "ParapolWeapon.h"
 #include "GameWorld.h"
-
 
 MainCharacterState BaseState::stateEnum = MainCharacterState::Jump;
 IdleState BaseState::idling;
@@ -26,6 +29,7 @@ ClimbState BaseState::climbing;
 StandAtkState BaseState::standatking;
 DuckAtkState BaseState::duckatking;
 ImmortalState BaseState::immortaling;
+SpawnDartState BaseState::spawningWp;
 
 void BaseState::handleCollisionWithBoss(float dtTime)
 {
@@ -38,6 +42,8 @@ void OnEndAttackAnimation()
 		BaseState::setState(MainCharacterState::Jump);
 	else if (BaseState::stateEnum == MainCharacterState::DuckAtk)
 		BaseState::setState(MainCharacterState::Duck);
+	else if (BaseState::stateEnum == MainCharacterState::SpawnDart)
+		BaseState::setState(MainCharacterState::Jump);
 }
 
 void BaseState::setDeadState()
@@ -46,6 +52,40 @@ void BaseState::setDeadState()
 		GameWorld::getInstance()->respawn();
 	else
 		GameWorld::getInstance()->newGame();
+}
+
+void BaseState::setSpawnWpState()
+{
+	MainCharacter* mainChar = MainCharacter::getInstance();
+	BaseWeapon * weapon;
+	switch (Scoreboard::getInstance()->curItem)
+	{
+	case ItemKind::BlueDart:
+		if (Scoreboard::getInstance()->items < BLUEDART_CONSUM)
+			return;
+		Scoreboard::getInstance()->items -= BLUEDART_CONSUM;
+		weapon = new StraightWeapon();
+		weapon->position.x = mainChar->position.x + mainChar->direction * DT_POSITION_SPAWN_WP.x;
+		weapon->position.y = mainChar->position.y + DT_POSITION_SPAWN_WP.y;
+		weapon->velocity.x = mainChar->direction * BLUEDART_SPEED;
+		weapon->icon = WeaponIcon::WpBlueDart;
+		weapon->timeToDie = BLUEDART_TIMETODIE;
+		GameWorld::getInstance()->addAlwayUpdateObject(ObjKind::StraightWp, weapon);
+		break;
+	case ItemKind::OrangeDart:
+		if (Scoreboard::getInstance()->items < ORANGEDART_CONSUM)
+			return;
+		Scoreboard::getInstance()->items -= ORANGEDART_CONSUM;
+		weapon = new BoomerangWeapon();
+		weapon->timeToDie = ORANGEDART_TIMETODIE;
+		weapon->icon = WeaponIcon::WpOraDart;
+		GameWorld::getInstance()->addAlwayUpdateObject(ObjKind::BoomerangWp, weapon);
+		break;
+	default:
+		return;
+	}
+	mainChar->state = &BaseState::spawningWp;
+	stateEnum = MainCharacterState::SpawnDart;
 }
 
 void BaseState::setImmortalState()
@@ -93,9 +133,7 @@ Vector2 BaseState::handleCollisionWithWall(float dtTime)
 		int a = 1;
 	COLLIEVENTS coEvents =
 		MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Wall, dtTime);
-
 	
-
 	for (auto coEvent : coEvents)
 		if (coEvent->normal.x != 0)
 			displayment.x *= coEvent->colliTime;
@@ -169,6 +207,9 @@ void BaseState::setState(MainCharacterState state)
 		MainCharacter::getInstance()->state = &BaseState::climbing;
 		MainCharacter::getInstance()->velocity = Vector2(0, 0);
 		break;
+	case SpawnDart:
+		setSpawnWpState();
+		return;
 	case Immortal:
 		setImmortalState();
 		break;

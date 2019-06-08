@@ -7,6 +7,7 @@
 #include "TileMap.h"
 #include "Scoreboard.h"
 #include "Item.h"
+#include "BaseWeapon.h"
 #include "MainCharacter.h"
 #include "GameWorld.h"
 
@@ -21,6 +22,9 @@ bool GameWorld::loadResource()
 	if (!mainChar->loadResource()) return false;
 	
 	if (!Item::loadResource()) return false;
+
+	if (!BaseWeapon::loadResource()) return false;
+
 	return true;
 }
 
@@ -35,6 +39,7 @@ GameWorld::~GameWorld()
 {
 	TextureCollection* textures = TextureCollection::getInstance();
 	Item::releaseResource();
+	BaseWeapon::releaseResource();
 	delete tileMap;
 	delete scorebar;
 	delete textures;

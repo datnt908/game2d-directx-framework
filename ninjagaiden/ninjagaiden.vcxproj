@@ -33,8 +33,13 @@
     <ClInclude Include="MainCharacter\States\ImmortalState.h" />
     <ClInclude Include="MainCharacter\States\JumpState.h" />
     <ClInclude Include="MainCharacter\States\MoveState.h" />
+    <ClInclude Include="MainCharacter\States\SpawnDartState.h" />
     <ClInclude Include="MainCharacter\States\StandAtkState.h" />
     <ClInclude Include="ninjagaidenHelper.h" />
+    <ClInclude Include="Weapon\BaseWeapon.h" />
+    <ClInclude Include="Weapon\BoomerangWeapon.h" />
+    <ClInclude Include="Weapon\ParapolWeapon.h" />
+    <ClInclude Include="Weapon\StraightWeapon.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp" />
@@ -51,8 +56,13 @@
     <ClCompile Include="MainCharacter\States\ImmortalState.cpp" />
     <ClCompile Include="MainCharacter\States\JumpState.cpp" />
     <ClCompile Include="MainCharacter\States\MoveState.cpp" />
+    <ClCompile Include="MainCharacter\States\SpawnDartState.cpp" />
     <ClCompile Include="MainCharacter\States\StandAtkState.cpp" />
     <ClCompile Include="ninjagaidenHelper.cpp" />
+    <ClCompile Include="Weapon\BaseWeapon.cpp" />
+    <ClCompile Include="Weapon\BoomerangWeapon.cpp" />
+    <ClCompile Include="Weapon\ParapolWeapon.cpp" />
+    <ClCompile Include="Weapon\StraightWeapon.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -127,7 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;$(ProjectDir)Item;$(ProjectDir)MainCharacter;$(ProjectDir)MainCharacter\States;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;$(ProjectDir)Item;$(ProjectDir)MainCharacter;$(ProjectDir)MainCharacter\States;$(ProjectDir)Weapon;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>

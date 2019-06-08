@@ -37,6 +37,12 @@
     <Filter Include="Source Files\Item">
       <UniqueIdentifier>{cc9a3af8-b8a9-4af8-8c84-c20334a9bb42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Weapon">
+      <UniqueIdentifier>{28b4e950-f533-4818-bd0e-e4d6e96290b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Weapon">
+      <UniqueIdentifier>{c210b49e-69c2-43a6-b8e5-a8ac45dbac47}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ninjagaidenHelper.h">
@@ -87,6 +93,21 @@
     <ClInclude Include="Item\Item.h">
       <Filter>Header Files\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Weapon\BaseWeapon.h">
+      <Filter>Header Files\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon\StraightWeapon.h">
+      <Filter>Header Files\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon\BoomerangWeapon.h">
+      <Filter>Header Files\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="Weapon\ParapolWeapon.h">
+      <Filter>Header Files\Weapon</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\SpawnDartState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -135,6 +156,21 @@
       <Filter>Source Files\MainCharacter\States</Filter>
     </ClCompile>
     <ClCompile Include="Item\Item.cpp">
+      <Filter>Source Files\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon\BaseWeapon.cpp">
+      <Filter>Source Files\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon\BoomerangWeapon.cpp">
+      <Filter>Source Files\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon\StraightWeapon.cpp">
+      <Filter>Source Files\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="Weapon\ParapolWeapon.cpp">
+      <Filter>Source Files\Weapon</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\SpawnDartState.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

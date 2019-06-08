@@ -11,7 +11,8 @@ enum MainCharacterState
 	Climb = 6,
 	DuckAtk = 4,
 	StandAtk = 3,
-	Immortal = 7
+	Immortal = 7,
+	SpawnDart = 9
 };
 
 class IdleState;
@@ -21,6 +22,7 @@ class JumpState;
 class ClimbState;
 class DuckAtkState;
 class StandAtkState;
+class SpawnDartState;
 class ImmortalState;
 
 void OnEndAttackAnimation();
@@ -40,11 +42,12 @@ public:
 	static DuckAtkState duckatking;
 	static StandAtkState standatking;
 	static ImmortalState immortaling;
-
+	static SpawnDartState spawningWp;
 /// Methods
 private:
 	static void setImmortalState();
 	static void setDeadState();
+	static void setSpawnWpState();
 protected:
 	static void setState(MainCharacterState state);
 	virtual void handleCollisionWithBoss(float dtTime);

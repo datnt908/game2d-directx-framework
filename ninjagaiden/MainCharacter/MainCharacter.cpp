@@ -7,7 +7,10 @@
 #include "CollisionEvent.h"
 #include "BaseState.h"
 #include "JumpState.h"
+#include "StraightWeapon.h"
+#include "BoomerangWeapon.h"
 #include "MainCharacter.h"
+#include "Scoreboard.h"
 #include "GameWorld.h"
 
 MainCharacter* MainCharacter::instance = NULL;
@@ -38,7 +41,9 @@ bool MainCharacter::loadResource()
 		{
 			animation = new Animation(100);
 			animations->addAnimation(aniID, animation);
-			if (aniID == MainCharacterState::DuckAtk || aniID == MainCharacterState::StandAtk)
+			if (aniID == MainCharacterState::DuckAtk 
+				|| aniID == MainCharacterState::StandAtk
+				|| aniID == MainCharacterState::SpawnDart)
 				animation->subsEndAniEvent(OnEndAttackAnimation);
 		}
 
@@ -110,5 +115,6 @@ void MainCharacter::setDirection(int direction)
 	animations->getAnimation(MainCharacterState::DuckAtk)->setScale(Vector2(direction, 1));
 	animations->getAnimation(MainCharacterState::StandAtk)->setScale(Vector2(direction, 1));
 	animations->getAnimation(MainCharacterState::Immortal)->setScale(Vector2(direction, 1));
+	animations->getAnimation(MainCharacterState::SpawnDart)->setScale(Vector2(direction, 1));
 	this->direction = direction;
 }

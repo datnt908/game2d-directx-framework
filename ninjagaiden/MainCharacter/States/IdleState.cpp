@@ -39,4 +39,7 @@ void IdleState::handleKeyInput(bool keyStates[])
 		setState(MainCharacterState::Jump);
 		MainCharacter::getInstance()->velocity.y = MAINCHAR_JUMP_SPEED;
 	}
+
+	if (keyStates[DIK_Z])
+		setState(MainCharacterState::SpawnDart);
 }
