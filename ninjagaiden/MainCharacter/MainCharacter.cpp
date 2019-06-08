@@ -17,6 +17,7 @@ MainCharacter* MainCharacter::instance = NULL;
 
 void MainCharacter::update(float dtTime)
 {
+	updateWeapon(dtTime);
 	state->update(dtTime);
 }
 
@@ -67,6 +68,8 @@ void MainCharacter::render(Vector2 camera)
 {
 	Vector2 viewPos = transformWorldToView(position, camera);
 	state->render(viewPos);
+	if(weapon != NULL)
+		weapon->render(camera);
 }
 
 void MainCharacter::handleKeyInput(bool keyStates[])
@@ -102,6 +105,19 @@ COLLIEVENTS MainCharacter::getColliWithObjsByKind(int objKind, float dtTime)
 	COLLIEVENTS colliEvents;
 		calculateColli(gameWorld->getInProcObjs(objKind), dtTime, colliEvents);
 	return colliEvents;
+}
+
+void MainCharacter::updateWeapon(float dtTime)
+{
+	if (weapon != NULL)
+	{
+		weapon->updateMainCharWeapon(dtTime);
+		if (weapon->timeToDie <= 0)
+		{
+			delete weapon;
+			weapon = NULL;
+		}
+	}
 }
 
 void MainCharacter::setDirection(int direction)

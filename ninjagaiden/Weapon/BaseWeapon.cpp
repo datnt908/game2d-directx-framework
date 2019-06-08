@@ -4,7 +4,9 @@
 #include "Animation.h"
 #include "AnimationCollection.h"
 #include "BoundaryBox.h"
+#include "CollisionEvent.h"
 #include "BaseWeapon.h"
+#include "BaseEnemy.h"
 #include "GameWorld.h"
 
 unordered_map<int, Sprite*> BaseWeapon::sprites;
@@ -81,4 +83,25 @@ void BaseWeapon::onCollision(bool isExplosive)
 	timeToDie = 0;
 	if(isExplosive)
 		this->isExplosion = true;
+}
+
+void BaseWeapon::updateMainCharWeapon(float dtTime)
+{
+	COLLIEVENTS tempCoEvents;
+	COLLIEVENTS coEvents;
+	
+	for (unsigned int i = 2; i <= 9; i++)
+	{
+		calculateColli(GameWorld::getInstance()->getInProcObjs((ObjKind)i), dtTime, tempCoEvents);
+		coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
+	}
+
+	if(coEvents.size() != 0)
+	{
+		((BaseEnemy*)(coEvents[0]->gameObj))->onCollision();
+		timeToDie = 0;
+		return;
+	}
+	
+	update(dtTime);
 }

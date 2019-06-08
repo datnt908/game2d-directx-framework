@@ -32,4 +32,5 @@ public:
 	BndBox getBndBox(float dtTime);
 	/// For game
 	void onCollision(bool isExplosive = false);
+	void updateMainCharWeapon(float dtTime);
 };

@@ -23,6 +23,7 @@ class DuckAtkState;
 class StandAtkState;
 class SpawnDartState;
 class ImmortalState;
+class BaseWeapon;
 
 class MainCharacter : public InteractiveObj
 {
@@ -42,6 +43,7 @@ private:
 	static MainCharacter* instance;
 	int direction;
 	BaseState* state;
+	BaseWeapon* weapon;
 	LPANIS animations;
 public:
 	int health;
@@ -50,6 +52,7 @@ public:
 private:
 	MainCharacter() {}
 	COLLIEVENTS getColliWithObjsByKind(int objKind, float dtTime);
+	void updateWeapon(float dtTime);
 public:
 	/// Common
 	static MainCharacter* getInstance();

@@ -62,6 +62,7 @@ void BaseState::setSpawnWpState()
 {
 	MainCharacter* mainChar = MainCharacter::getInstance();
 	BaseWeapon * weapon;
+	if (mainChar->weapon != NULL) return;
 	switch (Scoreboard::getInstance()->curItem)
 	{
 	case ItemKind::BlueDart:
@@ -74,7 +75,7 @@ void BaseState::setSpawnWpState()
 		weapon->velocity.x = mainChar->direction * BLUEDART_SPEED;
 		weapon->icon = WeaponIcon::WpBlueDart;
 		weapon->timeToDie = BLUEDART_TIMETODIE;
-		GameWorld::getInstance()->addAlwayUpdateObject(ObjKind::StraightWp, weapon);
+		mainChar->weapon = weapon;
 		break;
 	case ItemKind::OrangeDart:
 		if (Scoreboard::getInstance()->items < ORANGEDART_CONSUM)
@@ -83,7 +84,7 @@ void BaseState::setSpawnWpState()
 		weapon = new BoomerangWeapon();
 		weapon->timeToDie = ORANGEDART_TIMETODIE;
 		weapon->icon = WeaponIcon::WpOraDart;
-		GameWorld::getInstance()->addAlwayUpdateObject(ObjKind::BoomerangWp, weapon);
+		mainChar->weapon = weapon;
 		break;
 	default:
 		return;

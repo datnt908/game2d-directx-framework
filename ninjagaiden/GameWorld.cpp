@@ -100,11 +100,11 @@ void GameWorld::render()
 
 bool GameWorld::newGame()
 {
-	if (!tileMap->loadStage(Stage::_3_3))
+	if (!tileMap->loadStage(Stage::_3_1))
 		return false;
 	
-	spacePart.loadFromFile(STAGE_3_3_GRID_FILE, MAP_POS);
-	if(!loadGameObjs(Stage::_3_3))
+	spacePart.loadFromFile(STAGE_3_1_GRID_FILE, MAP_POS);
+	if(!loadGameObjs(Stage::_3_1))
 		return false;
 	
 	mainChar->initialize();
