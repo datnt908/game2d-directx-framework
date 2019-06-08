@@ -23,8 +23,8 @@ void Sprite::setRotate(float degrees)
 void Sprite::setScale(Vector2 scaleRatio)
 {
 	D3DXMatrixScaling(&scaleMatrix, scaleRatio.x, scaleRatio.y, 1.f);
-	size.x = (spriteRect.right - spriteRect.left) * scaleRatio.x;
-	size.y = (spriteRect.bottom - spriteRect.top) * scaleRatio.y;
+	size.x = (spriteRect.right - spriteRect.left) * abs(scaleRatio.x);
+	size.y = (spriteRect.bottom - spriteRect.top) * abs(scaleRatio.y);
 }
 
 void Sprite::render(Vector2 viewPos)

@@ -23,6 +23,16 @@
     <ClInclude Include="ImmortalObj\ImmortalObj.h" />
     <ClInclude Include="ImmortalObj\Scoreboard.h" />
     <ClInclude Include="ImmortalObj\TileMap.h" />
+    <ClInclude Include="MainCharacter\BaseState.h" />
+    <ClInclude Include="MainCharacter\MainCharacter.h" />
+    <ClInclude Include="MainCharacter\States\ClimbState.h" />
+    <ClInclude Include="MainCharacter\States\DuckAtkState.h" />
+    <ClInclude Include="MainCharacter\States\DuckState.h" />
+    <ClInclude Include="MainCharacter\States\IdleState.h" />
+    <ClInclude Include="MainCharacter\States\ImmortalState.h" />
+    <ClInclude Include="MainCharacter\States\JumpState.h" />
+    <ClInclude Include="MainCharacter\States\MoveState.h" />
+    <ClInclude Include="MainCharacter\States\StandAtkState.h" />
     <ClInclude Include="ninjagaidenHelper.h" />
   </ItemGroup>
   <ItemGroup>
@@ -30,6 +40,16 @@
     <ClCompile Include="ImmortalObj\ImmortalObj.cpp" />
     <ClCompile Include="ImmortalObj\Scoreboard.cpp" />
     <ClCompile Include="ImmortalObj\TileMap.cpp" />
+    <ClCompile Include="MainCharacter\BaseState.cpp" />
+    <ClCompile Include="MainCharacter\MainCharacter.cpp" />
+    <ClCompile Include="MainCharacter\States\ClimbState.cpp" />
+    <ClCompile Include="MainCharacter\States\DuckAtkState.cpp" />
+    <ClCompile Include="MainCharacter\States\DuckState.cpp" />
+    <ClCompile Include="MainCharacter\States\IdleState.cpp" />
+    <ClCompile Include="MainCharacter\States\ImmortalState.cpp" />
+    <ClCompile Include="MainCharacter\States\JumpState.cpp" />
+    <ClCompile Include="MainCharacter\States\MoveState.cpp" />
+    <ClCompile Include="MainCharacter\States\StandAtkState.cpp" />
     <ClCompile Include="ninjagaidenHelper.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -105,8 +125,9 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;$(ProjectDir)MainCharacter;$(ProjectDir)MainCharacter\States;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

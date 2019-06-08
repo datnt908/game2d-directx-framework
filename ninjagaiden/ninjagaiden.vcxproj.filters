@@ -19,6 +19,18 @@
     <Filter Include="Source Files\ImmortalObj">
       <UniqueIdentifier>{1a4e5ca7-72a9-4f2d-8a4c-f3612638bcca}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\MainCharacter">
+      <UniqueIdentifier>{9a41c9c8-5e23-4cb3-8fc2-edfa9c0cfddb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MainCharacter\States">
+      <UniqueIdentifier>{8d1f2eea-62e4-4fd1-8c44-6bd0e25adc7e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainCharacter">
+      <UniqueIdentifier>{0851d973-0a29-4075-a978-fca580bf9d01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MainCharacter\States">
+      <UniqueIdentifier>{351fdc14-109a-4a1a-914d-1ff2e3ddaca6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ninjagaidenHelper.h">
@@ -36,6 +48,36 @@
     <ClInclude Include="ImmortalObj\Scoreboard.h">
       <Filter>Header Files\ImmortalObj</Filter>
     </ClInclude>
+    <ClInclude Include="MainCharacter\States\ClimbState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\DuckAtkState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\DuckState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\IdleState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\ImmortalState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\JumpState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\MoveState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\States\StandAtkState.h">
+      <Filter>Header Files\MainCharacter\States</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\BaseState.h">
+      <Filter>Header Files\MainCharacter</Filter>
+    </ClInclude>
+    <ClInclude Include="MainCharacter\MainCharacter.h">
+      <Filter>Header Files\MainCharacter</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -52,6 +94,36 @@
     </ClCompile>
     <ClCompile Include="ImmortalObj\Scoreboard.cpp">
       <Filter>Source Files\ImmortalObj</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\BaseState.cpp">
+      <Filter>Source Files\MainCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\MainCharacter.cpp">
+      <Filter>Source Files\MainCharacter</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\ClimbState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\DuckAtkState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\DuckState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\IdleState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\ImmortalState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\JumpState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\MoveState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="MainCharacter\States\StandAtkState.cpp">
+      <Filter>Source Files\MainCharacter\States</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -17,13 +17,28 @@ Animation::~Animation()
 
 void Animation::addFrame(Sprite * sprite)
 {
-	if (sprite != NULL)
-		frames.push_back(sprite);
+	if (sprite == NULL) return;
+	frames.push_back(sprite);
+	curFrame = 0;
 }
 
 void Animation::subsEndAniEvent(EndAnimationEvent onEndAniFunct)
 {
 	endAniEvent = onEndAniFunct;
+}
+
+void Animation::render(Vector2 viewPos)
+{
+	curFrame = curFrame == -1 ? 0 : curFrame;
+	DWORD now = GetTickCount();
+	frames[curFrame]->render(viewPos);
+	if (now - lastFrameTime > (DWORD)dtFrameTime)
+	{
+		curFrame = (curFrame + 1) % frames.size();
+		lastFrameTime = now;
+		if (curFrame == 0 && endAniEvent != NULL)
+			endAniEvent();
+	}
 }
 
 Vector2 Animation::getCurFrameSize()

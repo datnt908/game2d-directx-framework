@@ -104,7 +104,7 @@ Texture loadTexture(LPCWSTR filepath, Color transparent)
 
 D3DPRESENT_PARAMETERS DxGraphic::createDx3dDeviceParam(HWND window, bool isFullscreen)
 {
-	D3DXVECTOR2 windowSize;
+	Vector2 windowSize;
 	D3DPRESENT_PARAMETERS direct3dDeviceParameters;
 
 	windowSize = getWindowClientSize(window);

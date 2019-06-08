@@ -11,6 +11,7 @@
 
 /// Common
 class GameWorld;
+class MainCharacter;
 
 /// Immortal Objects
 class ImmortalObj;
@@ -43,6 +44,10 @@ class Scoreboard;
 #define SCOREBAR_TEXTUREID 0004
 #define SCOREBAR_TEXTUREFILE L"Resource/ScoreBoard/scoreboard.bmp"
 #define SCOREBAR_TEXTURE_INFOFILE "Resource/ScoreBoard/scoreboard.txt"
+
+#define MAINCHAR_TEXTUREID 0005
+#define MAINCHAR_TEXTUREFILE L"Resource/MainChar/MainCharacter.bmp"
+#define MAINCHAR_TEXTUREINFO_FILE "Resource/MainChar/MainCharacter.txt"
 
 enum Stage {
 	_3_1 = 1,

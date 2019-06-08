@@ -31,9 +31,9 @@ float sweptAABB(BndBox mObj, BndBox sObj, Vector2 & normal)
 	if (!checkAABB_Box(bpb_mO, bpb_sO))
 		return 1.0f;
 
-	/// Không di chuyển xem như không va chạm
+	/// Nếu cả 2 k chuyển động tức vùng ảnh hưởng là vùng vật => overlap
 	if (mObj.dtPosition == Vector2(0, 0) && sObj.dtPosition == Vector2(0, 0))
-		return 1.0f;
+		return 0.f;
 
 	/// Chuyển vận tốc về cho 1 đối tượng - tính tương đối vận tốc
 	mObj.dtPosition -= sObj.dtPosition;
@@ -101,10 +101,10 @@ float sweptAABB(BndBox mObj, BndBox sObj, Vector2 & normal)
 	if (entryTime < 0.0f)
 	{
 		/// Nếu chuyển động ra xa nhau thì xem như không overlap
-		if (ExitT.x < abs(EntryT.x) && ExitT.y < abs(EntryT.y))
-			return 1.f;
-		else
+		if (ExitT.x > abs(EntryT.x) || ExitT.y > abs(EntryT.y))
 			return 0.f;
+		else
+			return 1.f;
 	}
 
 	/// Tính toán vector phản hồi va chạm

@@ -17,6 +17,7 @@ public:
 	~Animation();
 	void addFrame(Sprite* sprite);
 	void subsEndAniEvent(EndAnimationEvent onEndAniFunct);
+	void render(Vector2 viewPos);
 	Vector2 getCurFrameSize();
 	Vector2 getCurFrameCenter();
 	void setRotate(float degrees);

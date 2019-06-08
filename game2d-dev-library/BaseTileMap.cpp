@@ -17,6 +17,9 @@ bool BaseTileMap::loadSpriteSet(Texture texture, Vector2 spriteSize)
 	int tilesetCols = (int)getTextureSize(texture).x / (int)spriteSize.x;
 	int tilesetRows = (int)getTextureSize(texture).y / (int)spriteSize.y;
 	if (tilesetCols * tilesetRows == 0) return false;
+	for (auto sprite : spriteSet)
+		delete sprite;
+	spriteSet.clear();
 	for (int i = 0; i < tilesetRows; i++)
 		for (int j = 0; j < tilesetCols; j++)
 		{
@@ -34,8 +37,8 @@ bool BaseTileMap::loadMatrixMap(vector<INTS> matrixMap, int maxID)
 {
 	if (maxID >= spriteSet.size()) return false;
 	this->matrixMap = matrixMap;
-	size.x = matrixMap.size() * spriteSize.x;
-	size.y = matrixMap[0].size() * spriteSize.y;
+	size.x = matrixMap[0].size() * spriteSize.x;
+	size.y = matrixMap.size() * spriteSize.y;
 	return true;
 }
 

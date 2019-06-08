@@ -114,6 +114,7 @@
       <ConformanceMode>false</ConformanceMode>
       <PrecompiledHeaderFile />
       <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library\Utility;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

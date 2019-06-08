@@ -21,5 +21,9 @@ bool loadAllTextures()
 		SCOREBAR_TEXTUREID, SCOREBAR_TEXTUREFILE, Color(255, 163, 177));
 	if (!result) return false;
 
+	result = textures->addTexture(
+		MAINCHAR_TEXTUREID, MAINCHAR_TEXTUREFILE, Color(255, 163, 177));
+	if (!result) return false;
+
 	return true;
 }

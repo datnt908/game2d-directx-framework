@@ -6,6 +6,7 @@
 #include "ImmortalObj.h"
 #include "TileMap.h"
 #include "Scoreboard.h"
+#include "MainCharacter.h"
 #include "GameWorld.h"
 
 GameWorld* GameWorld::instance = NULL;
@@ -15,6 +16,8 @@ bool GameWorld::loadResource()
 	if (!loadAllTextures()) return false;
 
 	if (!scorebar->loadResource()) return false;
+
+	if (!mainChar->loadResource()) return false;
 	
 	return true;
 }
@@ -38,6 +41,7 @@ bool GameWorld::initialize()
 {
 	scorebar = Scoreboard::getInstance();
 	tileMap = new TileMap();
+	mainChar = MainCharacter::getInstance();
 
 	if (!loadResource()) return false;
 	
@@ -50,8 +54,8 @@ void GameWorld::update(float dtTime)
 {
 	updateInProcObjsList();
 	scorebar->update(dtTime);
-
-	camera.x += 1;
+	mainChar->update(dtTime);
+	updateCamera();
 }
 
 void GameWorld::render()
@@ -67,7 +71,7 @@ void GameWorld::render()
 		// Call render function of gameObjects in Game World
 		tileMap->render(camera);
 		scorebar->render();
-
+		mainChar->render(camera);
 		//
 		dxGraphic->spriteHandler->End();
 		dxGraphic->direct3dDevice->EndScene();
@@ -83,16 +87,71 @@ bool GameWorld::newGame()
 	spacePart.loadFromFile(STAGE_3_1_GRID_FILE, MAP_POS);
 	if(!loadGameObjs(Stage::_3_1))
 		return false;
+	
+	mainChar->initialize();
 
 	scorebar->mainHealth = MAX_HEALTH;
 	scorebar->enemyHealth = MAX_HEALTH;
-	scorebar->timer = 0.f;
+	scorebar->timer = 150.f;
 	scorebar->score = 0;
 	scorebar->items = 0;
 	scorebar->players = MAX_PLAYERS;
 	scorebar->stage = Stage::_3_1;
 
 	return true;
+}
+
+void GameWorld::respawn()
+{
+	tileMap->loadStage(tileMap->stage);
+
+	switch (tileMap->stage)
+	{
+	case _3_1:
+		loadGameObjs(_3_1);
+		break;
+	case _3_2:
+		loadGameObjs(_3_2);
+		break;
+	case _3_3:
+		loadGameObjs(_3_3);
+		break;
+	default:
+		break;
+	}
+
+	mainChar->initialize();
+
+	scorebar->mainHealth = MAX_HEALTH;
+	scorebar->enemyHealth = MAX_HEALTH;
+	scorebar->timer = 150.f;
+	scorebar->players--;
+}
+
+void GameWorld::nextStage()
+{
+	switch (tileMap->stage)
+	{
+	case _3_1:
+		tileMap->loadStage(_3_2);
+		spacePart.loadFromFile(STAGE_3_2_GRID_FILE, MAP_POS);
+		loadGameObjs(_3_2);
+		scorebar->stage = _3_2;
+		break;
+	case _3_2:
+		tileMap->loadStage(_3_3);
+		spacePart.loadFromFile(STAGE_3_3_GRID_FILE, MAP_POS);
+		loadGameObjs(_3_3);
+		scorebar->stage = _3_3;
+		break;
+	default:
+		break;
+	}
+	
+	mainChar->initialize();
+	mainChar->health = scorebar->mainHealth;
+
+	scorebar->timer = 150.f;
 }
 
 bool GameWorld::loadGameObjs(Stage stage)
@@ -141,4 +200,17 @@ bool GameWorld::loadGameObjs(Stage stage)
 		}
 	}
 	return true;
+}
+
+void GameWorld::updateCamera()
+{
+	Vector2 tempCamera;
+	Vector2 clientSize = DxGraphic::getInstance()->clientSize;
+	tempCamera.x = mainChar->position.x - clientSize.x / 2;
+	if (tempCamera.x < 0)
+		camera.x = 0;
+	else if (tempCamera.x > tileMap->size.x - clientSize.x)
+		camera.x = tileMap->size.x - clientSize.x;
+	else
+		camera.x = (float)((int)tempCamera.x);
 }

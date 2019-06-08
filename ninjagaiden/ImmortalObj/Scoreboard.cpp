@@ -72,7 +72,7 @@ void Scoreboard::render()
 
 void Scoreboard::update(float dtTime)
 {
-	timer += dtTime;
+	timer -= dtTime;
 }
 
 void Scoreboard::renderStage()
@@ -119,6 +119,7 @@ void Scoreboard::renderScore()
 void Scoreboard::renderTimer()
 {
 	char content[4];
+	if (timer < 0) timer = 999;
 	sprintf_s(content, "%03d", (int)timer);
 	for (unsigned int i = 0; i < 3; i++)
 		sprites[content[i] - 48]->render(SCOREBAR_TIMER_POS + i * SCOREBAR_CHAR_DIST);
@@ -142,16 +143,16 @@ void Scoreboard::renderItems()
 
 void Scoreboard::renderHealth()
 {
-	for (unsigned int i = 0; i < MAX_HEALTH; i++)
+	for (unsigned int i = 1; i <= MAX_HEALTH; i++)
 	{
-		if(i < enemyHealth)
-			sprites[12]->render(SCOREBAR_ENEMY_POS + i * SCOREBAR_HCELL_DIST);
+		if(i <= enemyHealth)
+			sprites[12]->render(SCOREBAR_ENEMY_POS + (i - 1) * SCOREBAR_HCELL_DIST);
 		else
-			sprites[11]->render(SCOREBAR_ENEMY_POS + i * SCOREBAR_HCELL_DIST);
+			sprites[11]->render(SCOREBAR_ENEMY_POS + (i - 1) * SCOREBAR_HCELL_DIST);
 
-		if(i < mainHealth)
-			sprites[12]->render(SCOREBAR_NINJA_POS + i * SCOREBAR_HCELL_DIST);
+		if(i <= mainHealth)
+			sprites[12]->render(SCOREBAR_NINJA_POS + (i - 1) * SCOREBAR_HCELL_DIST);
 		else
-			sprites[11]->render(SCOREBAR_NINJA_POS + i * SCOREBAR_HCELL_DIST);
+			sprites[11]->render(SCOREBAR_NINJA_POS + (i - 1) * SCOREBAR_HCELL_DIST);
 	}
 }

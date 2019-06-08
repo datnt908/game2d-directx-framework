@@ -1,7 +1,9 @@
 #include "inputHandler.h"
+#include "MainCharacter.h"
 
 void WinKeyHandler::onKeyState(bool keyStates[])
 {
+	MainCharacter::getInstance()->handleKeyInput(keyStates);
 }
 
 void WinKeyHandler::onKeyPress(int keycode)
