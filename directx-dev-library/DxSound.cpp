@@ -10,6 +10,13 @@ DxSound * DxSound::getInstance()
 	return instance;
 }
 
+DxSound::~DxSound()
+{
+	for (auto iterator : soundStorage)
+		delete iterator.second;
+	delete soundManager;
+}
+
 bool DxSound::initialize()
 {
 	soundManager = new CSoundManager();

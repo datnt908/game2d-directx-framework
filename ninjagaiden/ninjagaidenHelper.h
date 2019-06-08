@@ -75,6 +75,22 @@ class Item;
 #define ENEMIES_TEXTUREFILE L"Resource/Enemies/Enemies.bmp"
 #define ENEMIES_TEXTUREINFO_FILE "Resource/Enemies/Enemies.txt"
 
+#define MAIN_ATTACK_SOUND_FILE L"Resource/Sounds/attack.wav"
+#define MAIN_JUMP_SOUND_FILE L"Resource/Sounds/jump.wav"
+#define MAIN_ATTACKED_SOUNE_FILE L"Resource/Sounds/attacked.wav"
+#define ITEM_PICKED_SOUND_FILE L"Resource/Sounds/pick-item.wav"
+#define ENEMY_DIE_SOUND_FILE L"Resource/Sounds/enemy-die.wav"
+#define BOSS_DIE_SOUND_FILE L"Resource/Sounds/boss-die.wav"
+#define BOSS_JUMP_SOUND_FILE L"Resource/Sounds/boss-jump.wav"
+
+#define MAIN_ATTACK_SOUND_ID 1
+#define MAIN_JUMP_SOUND_ID 2
+#define MAIN_ATTACKED_SOUNE_ID 3
+#define ITEM_PICKED_SOUND_ID 4
+#define ENEMY_DIE_SOUND_ID 5
+#define BOSS_DIE_SOUND_ID 6
+#define BOSS_JUMP_SOUND_ID 7
+
 enum Stage {
 	_3_1 = 1,
 	_3_2 = 2,
@@ -116,3 +132,5 @@ enum ObjKind {
 
 /// Support Functions
 bool loadAllTextures();
+
+bool loadSounds();

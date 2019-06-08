@@ -20,6 +20,8 @@ GameWorld* GameWorld::instance = NULL;
 bool GameWorld::loadResource()
 {
 	if (!loadAllTextures()) return false;
+
+	if (!loadSounds()) return false;
 	
 	if (!scorebar->loadResource()) return false;
 

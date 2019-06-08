@@ -1,4 +1,5 @@
 ﻿#include <sstream>
+#include "DxSound.h"
 #include "BoundaryBox.h"
 #include "CollisionEvent.h"
 #include "TextureCollection.h"
@@ -210,6 +211,7 @@ void Item::onColliWithMainChar(bool isAtkTruth)
 			break;
 		}
 		GameWorld::getInstance()->deleteObject(this);
+		DxSound::getInstance()->playSound(ITEM_PICKED_SOUND_ID);
 		break;
 	default:
 		break;

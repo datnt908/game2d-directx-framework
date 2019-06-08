@@ -1,4 +1,5 @@
-﻿#include "Animation.h"
+﻿#include "DxSound.h"
+#include "Animation.h"
 #include "AnimationCollection.h"
 #include "BoundaryBox.h"
 #include "CollisionEvent.h"
@@ -221,12 +222,15 @@ void BaseState::setState(MainCharacterState state)
 		break;
 	case StandAtk:
 		MainCharacter::getInstance()->state = &BaseState::standatking;
+		DxSound::getInstance()->playSound(MAIN_ATTACK_SOUND_ID);
 		break;
 	case DuckAtk:
 		MainCharacter::getInstance()->state = &BaseState::duckatking;
+		DxSound::getInstance()->playSound(MAIN_ATTACK_SOUND_ID);
 		break;
 	case Jump:
 		MainCharacter::getInstance()->state = &BaseState::jumping;
+		DxSound::getInstance()->playSound(MAIN_JUMP_SOUND_ID);
 		break;
 	case Climb:
 		MainCharacter::getInstance()->state = &BaseState::climbing;
@@ -237,6 +241,7 @@ void BaseState::setState(MainCharacterState state)
 		return;
 	case Immortal:
 		setImmortalState();
+		DxSound::getInstance()->playSound(MAIN_ATTACKED_SOUNE_ID);
 		break;
 	case Dead:
 		setDeadState();

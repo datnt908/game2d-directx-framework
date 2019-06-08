@@ -1,10 +1,12 @@
 #include <sstream>
+#include "DxSound.h"
 #include "TextureCollection.h"
 #include "Sprite.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
 #include "BoundaryBox.h"
 #include "BaseEnemy.h"
+#include "Scoreboard.h"
 #include "GameWorld.h"
 
 unordered_map<int, LPANIS> BaseEnemy:: anicollectS;
@@ -48,6 +50,8 @@ void BaseEnemy::render(Vector2 camera)
 void BaseEnemy::onCollision()
 {
 	state = EnemyState::DEAD;
+	DxSound::getInstance()->playSound(ENEMY_DIE_SOUND_ID);
+	Scoreboard::getInstance()->score += 250;
 }
 
 BndBox BaseEnemy::getBndBox(float dtTime)

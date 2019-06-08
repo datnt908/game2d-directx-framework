@@ -1,4 +1,5 @@
 #include <ctime>
+#include "DxSound.h"
 #include "TextureCollection.h"
 #include "Sprite.h"
 #include "Animation.h"
@@ -53,6 +54,7 @@ void BossEnemy::updateAttkState(float dtTime)
 	{
 		waitTime = BOSSENE_WAITTIME;
 		state = EnemyState::MOVE;
+		DxSound::getInstance()->playSound(BOSS_JUMP_SOUND_ID);
 	}
 	else if (0.9 <= waitTime && waitTime <= 1.1)
 	{
@@ -88,6 +90,7 @@ void BossEnemy::onCollision()
 	if (health == 0)
 	{
 		state = EnemyState::DEAD;
+		DxSound::getInstance()->playSound(BOSS_DIE_SOUND_ID);
 		Scoreboard::getInstance()->score += BOSSENE_SCORE;
 	}
 	Scoreboard::getInstance()->enemyHealth = health;

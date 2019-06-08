@@ -17,6 +17,7 @@ private:
 /// Methods
 public:
 	static DxSound* getInstance();
+	~DxSound();
 	bool initialize();
 	bool addSound(int id, LPCWSTR filepath);
 	void playSound(int id, bool isLoop = false, LONG volume = 1L);
