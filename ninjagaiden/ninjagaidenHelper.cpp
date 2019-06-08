@@ -25,5 +25,9 @@ bool loadAllTextures()
 		MAINCHAR_TEXTUREID, MAINCHAR_TEXTUREFILE, Color(255, 163, 177));
 	if (!result) return false;
 
+	result = textures->addTexture(
+		ITEMS_TEXTUREID, ITEMS_TEXTUREFILE, Color(255, 163, 177));
+	if (!result) return false;
+
 	return true;
 }

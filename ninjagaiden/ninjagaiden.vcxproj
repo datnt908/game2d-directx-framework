@@ -23,6 +23,7 @@
     <ClInclude Include="ImmortalObj\ImmortalObj.h" />
     <ClInclude Include="ImmortalObj\Scoreboard.h" />
     <ClInclude Include="ImmortalObj\TileMap.h" />
+    <ClInclude Include="Item\Item.h" />
     <ClInclude Include="MainCharacter\BaseState.h" />
     <ClInclude Include="MainCharacter\MainCharacter.h" />
     <ClInclude Include="MainCharacter\States\ClimbState.h" />
@@ -40,6 +41,7 @@
     <ClCompile Include="ImmortalObj\ImmortalObj.cpp" />
     <ClCompile Include="ImmortalObj\Scoreboard.cpp" />
     <ClCompile Include="ImmortalObj\TileMap.cpp" />
+    <ClCompile Include="Item\Item.cpp" />
     <ClCompile Include="MainCharacter\BaseState.cpp" />
     <ClCompile Include="MainCharacter\MainCharacter.cpp" />
     <ClCompile Include="MainCharacter\States\ClimbState.cpp" />
@@ -125,7 +127,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;$(ProjectDir)MainCharacter;$(ProjectDir)MainCharacter\States;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)directx-dev-library;$(SolutionDir)game2d-dev-library;$(SolutionDir)game2d-dev-library\Collision;$(SolutionDir)game2d-dev-library\Graphic;$(SolutionDir)game2d-dev-library\Object;$(SolutionDir)game2d-dev-library\Space;$(ProjectDir);$(ProjectDir)ImmortalObj;$(ProjectDir)Item;$(ProjectDir)MainCharacter;$(ProjectDir)MainCharacter\States;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeaderFile />
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>

@@ -2,7 +2,6 @@
 #include "InteractiveObj.h"
 
 #define MAINCHAR_MOVE_SPEED 75
-#define MAINCHAR_FALL_SPEED 450
 #define MAINCHAR_JUMP_SPEED 200
 #define MAINCHAR_REVERSE_SPEED 10
 

@@ -18,12 +18,17 @@ class ImmortalObj;
 class TileMap;
 class Scoreboard;
 
+/// Item
+class Item;
+
 /// Constant & Enum
 
 #define MAP_POS Vector2(0, 176)
 #define TILEMAP_SPRITE_SIZE Vector2(16.f, 16.f)
 #define MAX_HEALTH 15
 #define MAX_PLAYERS 2
+
+#define FALL_SPEED 450
 
 #define STAGE_3_1_TEXTUREID 0001
 #define STAGE_3_2_TEXTUREID 0002
@@ -49,6 +54,10 @@ class Scoreboard;
 #define MAINCHAR_TEXTUREFILE L"Resource/MainChar/MainCharacter.bmp"
 #define MAINCHAR_TEXTUREINFO_FILE "Resource/MainChar/MainCharacter.txt"
 
+#define ITEMS_TEXTUREID 0006
+#define ITEMS_TEXTUREFILE L"Resource/Item/Items.bmp"
+#define ITEMS_TEXTUREINFO_FILE "Resource/Item/Items.txt"
+
 enum Stage {
 	_3_1 = 1,
 	_3_2 = 2,
@@ -68,10 +77,14 @@ enum ItemKind {
 enum ObjKind {
 	Ground = 0,
 	Stair = 1,
+	Item1 = 10,
+	Item2 = 11,
 	Wall = 12,
 	Gate = 13,
 	Water = 14
 };
+
+
 
 /// Support Functions
 bool loadAllTextures();

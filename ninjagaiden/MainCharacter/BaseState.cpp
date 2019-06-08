@@ -13,6 +13,7 @@
 #include "StandAtkState.h"
 #include "ImmortalState.h"
 #include "MainCharacter.h"
+#include "Item.h"
 #include "GameWorld.h"
 
 
@@ -60,7 +61,7 @@ void BaseState::setImmortalState()
 
 Vector2 BaseState::handleCollisionWithGround(float dtTime)
 {
-	MainCharacter::getInstance()->velocity.y += -MAINCHAR_FALL_SPEED * dtTime;
+	MainCharacter::getInstance()->velocity.y += -FALL_SPEED * dtTime;
 	Vector2 tempVelocity = MainCharacter::getInstance()->velocity;
 	MainCharacter::getInstance()->velocity.x = 0;
 	Vector2 displayment = dtTime * MainCharacter::getInstance()->velocity;
@@ -123,7 +124,16 @@ void BaseState::handleCollisionWithWater(float dtTime)
 
 void BaseState::handleCollisionWithItems(float dtTime)
 {
-	
+	COLLIEVENTS tempCoEvents;
+	COLLIEVENTS coEvents;
+
+	tempCoEvents = MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Item1, dtTime);
+	coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
+	tempCoEvents = MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Item2, dtTime);
+	coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
+
+	for (auto coEvent : coEvents)
+		((Item*)(coEvent->gameObj))->onColliWithMainChar(false);
 }
 
 void BaseState::handleCollisionWithEnemiesAndWeapons(float dtTime)

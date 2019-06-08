@@ -6,6 +6,7 @@
 #include "ImmortalObj.h"
 #include "TileMap.h"
 #include "Scoreboard.h"
+#include "Item.h"
 #include "MainCharacter.h"
 #include "GameWorld.h"
 
@@ -19,6 +20,7 @@ bool GameWorld::loadResource()
 
 	if (!mainChar->loadResource()) return false;
 	
+	if (!Item::loadResource()) return false;
 	return true;
 }
 
@@ -32,6 +34,7 @@ GameWorld * GameWorld::getInstance()
 GameWorld::~GameWorld()
 {
 	TextureCollection* textures = TextureCollection::getInstance();
+	Item::releaseResource();
 	delete tileMap;
 	delete scorebar;
 	delete textures;
@@ -55,6 +58,9 @@ void GameWorld::update(float dtTime)
 	updateInProcObjsList();
 	scorebar->update(dtTime);
 	mainChar->update(dtTime);
+	for (auto it = inProcObjs.begin(); it != inProcObjs.end(); it++)
+		for (unsigned int i = 0; i < it->second.size(); i++)
+			it->second[i]->update(dtTime);
 	updateCamera();
 }
 
@@ -72,6 +78,10 @@ void GameWorld::render()
 		tileMap->render(camera);
 		scorebar->render();
 		mainChar->render(camera);
+
+		for (auto it = inProcObjs.begin(); it != inProcObjs.end(); it++)
+			for (unsigned int i = 0; i < it->second.size(); i++)
+				it->second[i]->render(camera);
 		//
 		dxGraphic->spriteHandler->End();
 		dxGraphic->direct3dDevice->EndScene();
@@ -97,6 +107,7 @@ bool GameWorld::newGame()
 	scorebar->items = 0;
 	scorebar->players = MAX_PLAYERS;
 	scorebar->stage = Stage::_3_1;
+	scorebar->curItem = ItemKind::Bonus500;
 
 	return true;
 }
@@ -193,6 +204,11 @@ bool GameWorld::loadGameObjs(Stage stage)
 		case ObjKind::Gate:
 		case ObjKind::Water:
 			obj = new ImmortalObj(LeftBot_wP, Vector2(width, height));
+			this->gameObjects[id] = obj;
+			break;
+		case ObjKind::Item1:
+		case ObjKind::Item2:
+			obj = new Item((ObjKind)(id / OBJ_KIND_WEIGHT), LeftBot_wP);
 			this->gameObjects[id] = obj;
 			break;
 		default:

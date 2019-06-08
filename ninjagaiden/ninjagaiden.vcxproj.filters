@@ -31,6 +31,12 @@
     <Filter Include="Source Files\MainCharacter\States">
       <UniqueIdentifier>{351fdc14-109a-4a1a-914d-1ff2e3ddaca6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Item">
+      <UniqueIdentifier>{3cab0d4a-a782-422d-a793-17f72e9258a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Item">
+      <UniqueIdentifier>{cc9a3af8-b8a9-4af8-8c84-c20334a9bb42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ninjagaidenHelper.h">
@@ -78,6 +84,9 @@
     <ClInclude Include="MainCharacter\MainCharacter.h">
       <Filter>Header Files\MainCharacter</Filter>
     </ClInclude>
+    <ClInclude Include="Item\Item.h">
+      <Filter>Header Files\Item</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -124,6 +133,9 @@
     </ClCompile>
     <ClCompile Include="MainCharacter\States\StandAtkState.cpp">
       <Filter>Source Files\MainCharacter\States</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\Item.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

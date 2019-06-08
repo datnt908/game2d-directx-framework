@@ -1,4 +1,5 @@
-﻿#include "DxGraphic.h"
+﻿#include <ctime>
+#include "DxGraphic.h"
 #include "DxInput.h"
 #include "DxSound.h"
 #include "inputHandler.h"
@@ -22,6 +23,7 @@ int WINAPI WinMain(
 	LPSTR lpCmdLine,
 	int nCmdShow)
 {
+	srand(time(NULL));
 	int codeErr = 0;
 	HWND hWnd = createGameWindow(hInstance, nCmdShow);
 	if (hWnd == FALSE) codeErr = 1;
