@@ -9,5 +9,4 @@ private:
 	void update(float dtTime);
 	void handleCollisionWithEnemies(float dtTime);
 	void handleCollisionWithWeapons(float dtTime);
-	void handleCollisionWithBoss(float dtTime);
 };

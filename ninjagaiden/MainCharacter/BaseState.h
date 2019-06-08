@@ -50,7 +50,6 @@ private:
 	static void setSpawnWpState();
 protected:
 	static void setState(MainCharacterState state);
-	virtual void handleCollisionWithBoss(float dtTime);
 	virtual void handleCollisionWithGate(float dtTime);
 	virtual void handleCollisionWithWater(float dtTime);
 	virtual void handleCollisionWithItems(float dtTime);

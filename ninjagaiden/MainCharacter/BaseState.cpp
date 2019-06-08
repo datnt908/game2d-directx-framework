@@ -32,14 +32,6 @@ DuckAtkState BaseState::duckatking;
 ImmortalState BaseState::immortaling;
 SpawnDartState BaseState::spawningWp;
 
-void BaseState::handleCollisionWithBoss(float dtTime)
-{
-	COLLIEVENTS coEvents;
-	coEvents = MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Boss, dtTime);
-	if (coEvents.size())
-		setState(MainCharacterState::Immortal);
-}
-
 void OnEndAttackAnimation()
 {
 	if (BaseState::stateEnum == MainCharacterState::StandAtk)
@@ -184,7 +176,7 @@ void BaseState::handleCollisionWithEnemies(float dtTime)
 	COLLIEVENTS tempCoEvents;
 	COLLIEVENTS coEvents;
 	MainCharacter* mainChar = MainCharacter::getInstance();
-	for (unsigned int i = 2; i <= 8; i++)
+	for (unsigned int i = 2; i <= 9; i++)
 	{
 		tempCoEvents = mainChar->getColliWithObjsByKind((ObjKind)i, dtTime);
 		coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());

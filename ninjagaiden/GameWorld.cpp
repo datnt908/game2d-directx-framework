@@ -7,8 +7,8 @@
 #include "TileMap.h"
 #include "Scoreboard.h"
 #include "Item.h"
-#include "BossEnemy.h"
 #include "BaseWeapon.h"
+#include "BaseEnemy.h"
 #include "MainCharacter.h"
 #include "GameWorld.h"
 
@@ -218,10 +218,6 @@ bool GameWorld::loadGameObjs(Stage stage)
 		case ObjKind::Item1:
 		case ObjKind::Item2:
 			obj = new Item((ObjKind)(id / OBJ_KIND_WEIGHT), LeftBot_wP);
-			this->gameObjects[id] = obj;
-			break;
-		case ObjKind::Boss:
-			obj = new BossEnemy(LeftBot_wP, Vector2(width, height));
 			this->gameObjects[id] = obj;
 			break;
 		default:

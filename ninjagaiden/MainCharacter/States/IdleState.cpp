@@ -4,7 +4,6 @@
 
 void IdleState::update(float dtTime)
 {
-	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
 	handleCollisionWithEnemies(dtTime);
 	handleCollisionWithWeapons(dtTime);

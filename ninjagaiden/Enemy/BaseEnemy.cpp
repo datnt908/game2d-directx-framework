@@ -24,15 +24,29 @@ void BaseEnemy::update(float dtTime)
 	}
 }
 
-void BaseEnemy::render(Vector2 cam_wP)
+void BaseEnemy::render(Vector2 camera)
 {
-	Vector2 viewPosition = transformWorldToView(position, cam_wP);
-	viewPosition.y += -10;
-	 anicollectS[ENEMIES_DYING_ANIS_ID]->getAnimation(0)->render(viewPosition);
+	Vector2 viewPos = transformWorldToView(position, camera);
+	switch (state)
+	{
+	case MOVE:
+		anicollectS[enemyKind]->getAnimation(state)->setScale(Vector2(direction, 1));
+		anicollectS[enemyKind]->getAnimation(state)->render(viewPos);
+		break;
+	case ATTACK:
+		anicollectS[enemyKind]->getAnimation(state)->setScale(Vector2(direction, 1));
+		anicollectS[enemyKind]->getAnimation(state)->render(viewPos);
+		break;
+	case DEAD:
+		viewPos.y += -10;
+		anicollectS[ENEMIES_DYING_ANIS_ID]->getAnimation(0)->render(viewPos);
+		break;
+	}
 }
 
 void BaseEnemy::onCollision()
 {
+	state = EnemyState::DEAD;
 }
 
 void BaseEnemy::releaseResource()
@@ -41,12 +55,10 @@ void BaseEnemy::releaseResource()
 		delete animations.second;
 }
 
-void BaseEnemy::updateMoveState(float dtTime)
+BaseEnemy::BaseEnemy(ObjKind kind, Vector2 position)
 {
-}
-
-void BaseEnemy::updateAttkState(float dtTime)
-{
+	enemyKind = kind;
+	this->position = position;
 }
 
 void BaseEnemy::updateDeadState(float dtTime)

@@ -18,22 +18,21 @@ class BaseEnemy : public InteractiveObj
 protected:
 	static unordered_map<int, LPANIS> anicollectS;
 	EnemyState state = EnemyState::MOVE;
+	ObjKind enemyKind;
 	int direction;
 	float timeToDie;
-	float deltamovex1;
-	float deltamovex2;
 
 /// Methods
 protected:
 
-	virtual void updateMoveState(float dtTime);
-	virtual void updateAttkState(float dtTime);
+	virtual void updateMoveState(float dtTime) = 0;
+	virtual void updateAttkState(float dtTime) = 0;
 	virtual void updateDeadState(float dtTime);
 public:
 	static bool loadResource();
 	static void releaseResource();
-
+	BaseEnemy(ObjKind kind, Vector2 position);
 	virtual void update(float dtTime);
-	virtual void render(Vector2 cam_wP);
+	virtual void render(Vector2 camera);
 	virtual void onCollision();
 };

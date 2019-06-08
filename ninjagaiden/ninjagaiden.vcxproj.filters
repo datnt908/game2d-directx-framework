@@ -117,9 +117,6 @@
     <ClInclude Include="Enemy\BaseEnemy.h">
       <Filter>Header Files\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="Enemy\BossEnemy.h">
-      <Filter>Header Files\Enemy</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GameWorld.cpp">
@@ -187,9 +184,6 @@
     </ClCompile>
     <ClCompile Include="MainCharacter\States\SpawnDartState.cpp">
       <Filter>Source Files\MainCharacter\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Enemy\BossEnemy.cpp">
-      <Filter>Source Files\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

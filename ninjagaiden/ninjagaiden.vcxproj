@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Enemy\BaseEnemy.h" />
-    <ClInclude Include="Enemy\BossEnemy.h" />
     <ClInclude Include="GameWorld.h" />
     <ClInclude Include="ImmortalObj\ImmortalObj.h" />
     <ClInclude Include="ImmortalObj\Scoreboard.h" />
@@ -45,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Enemy\BaseEnemy.cpp" />
-    <ClCompile Include="Enemy\BossEnemy.cpp" />
     <ClCompile Include="GameWorld.cpp" />
     <ClCompile Include="ImmortalObj\ImmortalObj.cpp" />
     <ClCompile Include="ImmortalObj\Scoreboard.cpp" />

@@ -21,7 +21,6 @@ void JumpState::update(float dtTime)
 	MainCharacter::getInstance()->position += displayment;
 
 	handleCollisionWithStair(dtTime);
-	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
 	handleCollisionWithEnemies(dtTime);
 	handleCollisionWithWeapons(dtTime);

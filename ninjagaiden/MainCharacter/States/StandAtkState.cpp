@@ -2,8 +2,8 @@
 #include "ninjagaidenHelper.h"
 #include "StandAtkState.h"
 #include "Item.h"
-#include "BossEnemy.h"
 #include "BaseWeapon.h"
+#include "BaseEnemy.h"
 #include "GameWorld.h"
 
 void StandAtkState::update(float dtTime)
@@ -17,7 +17,6 @@ void StandAtkState::update(float dtTime)
 	displayment.x = displayment.y == 0 ? 0 : displayment.x;
 	MainCharacter::getInstance()->position += displayment;
 
-	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
 	handleCollisionWithEnemies(dtTime);
 	handleCollisionWithWeapons(dtTime);
@@ -28,7 +27,7 @@ void StandAtkState::handleCollisionWithEnemies(float dtTime)
 	COLLIEVENTS tempCoEvents;
 	COLLIEVENTS coEvents;
 	MainCharacter* mainChar = MainCharacter::getInstance();
-	for (unsigned int i = 2; i <= 8; i++)
+	for (unsigned int i = 2; i <= 9; i++)
 	{
 		tempCoEvents = mainChar->getColliWithObjsByKind((ObjKind)i, dtTime);
 		coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
@@ -68,25 +67,10 @@ void StandAtkState::handleCollisionWithWeapons(float dtTime)
 			((BaseWeapon*)(coEvent->gameObj))->onCollision(true);
 		else
 		{
+			((BaseWeapon*)(coEvent->gameObj))->onCollision();
 			setState(MainCharacterState::Immortal);
 			return;
 		}
-}
-
-void StandAtkState::handleCollisionWithBoss(float dtTime)
-{
-	COLLIEVENTS coEvents;
-	coEvents = MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Boss, dtTime);
-
-	for (auto coEvent : coEvents)
-		if (MainCharacter::getInstance()->direction == 1 &&
-			MainCharacter::getInstance()->position.x < coEvent->gameObj->position.x)
-			((BossEnemy *)coEvent->gameObj)->onCollision();
-		else if (MainCharacter::getInstance()->direction == -1 &&
-			MainCharacter::getInstance()->position.x > coEvent->gameObj->position.x)
-			((BossEnemy *)coEvent->gameObj)->onCollision();
-		else
-			setState(MainCharacterState::Immortal);
 }
 
 void StandAtkState::handleCollisionWithItems(float dtTime)

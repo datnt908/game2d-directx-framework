@@ -17,7 +17,6 @@ void DuckState::handleKeyInput(bool keyStates[])
 
 void DuckState::update(float dtTime)
 {
-	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
 	handleCollisionWithEnemies(dtTime);
 	handleCollisionWithWeapons(dtTime);

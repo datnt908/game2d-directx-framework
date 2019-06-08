@@ -9,7 +9,6 @@ void MoveState::update(float dtTime)
 	Vector2 displayment = handleCollisionWithWall(dtTime);
 	MainCharacter::getInstance()->position += displayment;
 
-	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
 	handleCollisionWithEnemies(dtTime);
 	handleCollisionWithWeapons(dtTime);

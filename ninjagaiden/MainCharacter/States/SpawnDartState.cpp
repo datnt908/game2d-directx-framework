@@ -13,7 +13,6 @@ void SpawnDartState::update(float dtTime)
 	displayment.x = displayment.y == 0 ? 0 : displayment.x;
 	MainCharacter::getInstance()->position += displayment;
 
-	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
 	handleCollisionWithEnemies(dtTime);
 	handleCollisionWithWeapons(dtTime);

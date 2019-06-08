@@ -16,7 +16,6 @@ void ClimbState::update(float dtTime)
 	displayment.x = 0;
 	MainCharacter::getInstance()->position += displayment;
 
-	handleCollisionWithBoss(dtTime);
 	handleCollisionWithItems(dtTime);
 	handleCollisionWithEnemies(dtTime);
 	handleCollisionWithWeapons(dtTime);

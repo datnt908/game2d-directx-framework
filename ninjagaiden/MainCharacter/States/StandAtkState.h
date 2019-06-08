@@ -7,7 +7,6 @@ class StandAtkState : public BaseState
 private:
 	void handleKeyInput(bool keyStates[]);
 	void update(float dtTime);
-	void handleCollisionWithBoss(float dtTime);
 	void handleCollisionWithItems(float dtTime);
 	void handleCollisionWithEnemies(float dtTime);
 	void handleCollisionWithWeapons(float dtTime);
