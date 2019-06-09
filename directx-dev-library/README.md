@@ -117,6 +117,4 @@ Mỗi abstract class có 3 pure virtual methods:
 * __OnPress()__ sẽ trả ra thông tin nút được nhấn của thiết bị input.
 * __OnRelease()__ sẽ trả ra thông tin nút được thả ra của thiết bị input.
 
-Để sử dụng được 2 class này, chúng ta cần tạo class mới kế thừa và định nghĩa lại 3 phương thức theo cách xử lý logic mà chương trình cần thiết. Khi đó, hàm __processInput()__ của __DxInput__ sẽ gọi đa hình xuống các hàm của class mới. Nhưng vậy sẽ đảm bảo đúng xử lý logic input mà bản thân mong muốn.
-
-
+Để sử dụng được 2 class này, chúng ta cần tạo class mới kế thừa và định nghĩa lại 3 phương thức theo cách xử lý logic mà chương trình cần thiết. Khi đó, hàm __processInput()__ của __DxInput__ sẽ gọi đa hình xuống các hàm của class mới. Như vậy sẽ đảm bảo đúng xử lý logic input mà bản thân mong muốn.

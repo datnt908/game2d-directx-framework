@@ -11,9 +11,7 @@ Thuộc giáo trình Khoa __Công Nghệ Phần Mềm__ của __ĐẠI HỌC CÔ
 Repo chứa đồ án cuối kỳ của nhóm sinh viên năm 2 bao gồm sự đóng góp của:
 
 * _Nguyễn Tiến Đạt: nguyentiendat150699@gmail.com_
-* _Võ Phúc Tài_
-* _Bùi Tuấn Minh_
-* _Huỳnh Trầm Bảo Chấn_
+* Và những người khác không muốn đề tên
 
 Đồ án được thiết kế tối ưu nhất mà nhóm có thể, nhằm tạo ra Framework cho môn học.
 Repo GitHub này được public nhằm cung cấp cho sinh viên nào có nhu cầu hoặc cần sử dụng trong quá trình học tập nghiên cứu.
