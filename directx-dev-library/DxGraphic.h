@@ -1,8 +1,6 @@
 ﻿#pragma once
-
 #include "DxHelper.h"
 
-// Class DxGraphic dành cho xử lý đồ họa
 class DxGraphic
 {
 	friend class GameWorld;
@@ -13,17 +11,17 @@ private:
 	LPDIRECT3DDEVICE9 direct3dDevice;
 	LPDIRECT3DSURFACE9 backBuffer;
 	LPD3DXSPRITE spriteHandler;
-
 public:
-	Vector2 clientSize; // Kích thước nội dung hiển thị của cửa sổ
-	HWND window; // Con trỏ cửa sổ của chương trình
+	Vector2 clientSize; 
+	HWND window;
 
 /// Methods
 private:
+	DxGraphic();
 	bool initializeDirect3d();
 	bool initializeDevice(bool isFullscreen);
-	D3DPRESENT_PARAMETERS createDx3dDeviceParam(HWND window, bool isFullscreen);
-
+	Vector2 getWindowClientSize(HWND window);
+	D3DPRESENT_PARAMETERS createDx3dDeviceParam(bool isFullscreen);
 public:
 	static DxGraphic* getInstance();
 	~DxGraphic();

@@ -1,6 +1,14 @@
 #include "DxGraphic.h"
 
-DxGraphic* DxGraphic::instance;
+DxGraphic* DxGraphic::instance = NULL;
+
+DxGraphic::DxGraphic()
+{
+	spriteHandler = NULL;
+	backBuffer = NULL;
+	direct3d = NULL;
+	direct3dDevice = NULL;
+}
 
 bool DxGraphic::initializeDirect3d()
 {
@@ -12,7 +20,7 @@ bool DxGraphic::initializeDirect3d()
 
 bool DxGraphic::initializeDevice(bool isFullscreen)
 {
-	D3DPRESENT_PARAMETERS parameter = createDx3dDeviceParam(window, isFullscreen);
+	D3DPRESENT_PARAMETERS parameter = createDx3dDeviceParam(isFullscreen);
 	clientSize.x = (float)parameter.BackBufferWidth;
 	clientSize.y = (float)parameter.BackBufferHeight;
 
@@ -50,9 +58,9 @@ DxGraphic::~DxGraphic()
 
 bool DxGraphic::initialize(HWND window, bool isFullscreen)
 {
-	this->window = window;
-	if (this->window == NULL)
+	if (window == NULL)	
 		return false;
+	this->window = window;
 	
 	if (!initializeDirect3d())
 		return false;
@@ -77,32 +85,17 @@ LPD3DXSPRITE DxGraphic::getSpriteHandler()
 	return spriteHandler;
 }
 
-Texture loadTexture(LPCWSTR filepath, Color transparent)
+Vector2 DxGraphic::getWindowClientSize(HWND window)
 {
-	Texture texture;
-	D3DXIMAGE_INFO imageInfo;
-	HRESULT result;
-
-	result = D3DXGetImageInfoFromFile(filepath, &imageInfo);
-	if (result != D3D_OK)
-		return NULL;
-
-	result = D3DXCreateTextureFromFileEx(
-		DxGraphic::getInstance()->direct3dDevice, 
-		filepath,
-		imageInfo.Width, imageInfo.Height,
-		1, D3DPOOL_DEFAULT, D3DFMT_UNKNOWN,
-		D3DPOOL_DEFAULT, D3DX_DEFAULT, D3DX_DEFAULT,
-		transparent, &imageInfo, NULL, &texture
-	);
-
-	if (result != D3D_OK)
-		return NULL;
-
-	return texture;
+	Vector2 windowSize;
+	RECT windowRect;
+	GetClientRect(window, &windowRect);
+	windowSize.x = (float)windowRect.right - windowRect.left;
+	windowSize.y = (float)windowRect.bottom - windowRect.top;
+	return windowSize;
 }
 
-D3DPRESENT_PARAMETERS DxGraphic::createDx3dDeviceParam(HWND window, bool isFullscreen)
+D3DPRESENT_PARAMETERS DxGraphic::createDx3dDeviceParam(bool isFullscreen)
 {
 	Vector2 windowSize;
 	D3DPRESENT_PARAMETERS direct3dDeviceParameters;

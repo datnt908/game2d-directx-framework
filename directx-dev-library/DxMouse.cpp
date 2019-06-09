@@ -10,6 +10,12 @@ void DxMouse::collectState()
 			inputMouse->Acquire();
 }
 
+DxMouse::DxMouse()
+{
+	inputMouse = NULL;
+	mouseHandler = NULL;
+}
+
 DxMouse::~DxMouse()
 {
 	if (inputMouse != NULL)
@@ -21,13 +27,19 @@ DxMouse::~DxMouse()
 
 bool DxMouse::initialize(MouseHandler * mouseHandler)
 {
-	HWND hWnd = DxGraphic::getInstance()->window;
+	if (mouseHandler == NULL)
+		return false;
+	HWND window = DxGraphic::getInstance()->window;
+	if (window == NULL)
+		return false;
 	LPDIRECTINPUT8 directInput = DxInput::getInstance()->getDirectInput();
+	if (directInput == NULL)
+		return false;
 	HRESULT result = directInput->CreateDevice(GUID_SysMouse, &inputMouse, NULL);
 	if (result != DI_OK)
 		return false;
 	result = inputMouse->SetDataFormat(&c_dfDIMouse);
-	result = inputMouse->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
+	result = inputMouse->SetCooperativeLevel(window, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
 	result = inputMouse->Acquire();
 	this->mouseHandler = mouseHandler;
 	return true;

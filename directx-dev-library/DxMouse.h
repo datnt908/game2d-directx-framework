@@ -1,8 +1,6 @@
 ﻿#pragma once
-
 #include "DxHelper.h"
 
-// Class DxMouse dành cho xử lý người dùng input tín hiệu Mouse
 class DxMouse
 {
 /// Attributes
@@ -14,8 +12,8 @@ private:
 /// Methods
 private:
 	void collectState();
-
 public:
+	DxMouse();
 	~DxMouse();
 	bool initialize(MouseHandler* mouseHandler);
 	void processInput();

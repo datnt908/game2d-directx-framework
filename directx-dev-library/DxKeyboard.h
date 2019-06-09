@@ -1,8 +1,10 @@
 ﻿#pragma once
-
 #include "DxHelper.h"
 
-// Class DxKeyboard dành cho xử lý người dùng input tín hiệu Keyboard
+#define KEYB_BUFFER_SIZE 1024
+
+typedef DIDEVICEOBJECTDATA KEYB_BUFFER[KEYB_BUFFER_SIZE];
+
 class DxKeyboard
 {
 /// Attributes
@@ -14,9 +16,11 @@ private:
 
 /// Methods
 private:
+	DIPROPDWORD createDeviceDataBuffer(DWORD bufferSize);
 	void collectState();
 	void collectBuffer();
 public:
+	DxKeyboard();
 	~DxKeyboard();
 	bool initialize(KeyboardHandler* keybHandler);
 	void processInput();

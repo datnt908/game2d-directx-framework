@@ -1,8 +1,8 @@
 ﻿#pragma once
-
 #include "DxHelper.h"
 
-// Class DxInput dành cho xử lý người dùng Input
+#define DIRECTINPUT_VER 0x0800
+
 class DxInput
 {
 /// Attributes
@@ -14,8 +14,8 @@ private:
 
 /// Methods
 private:
+	DxInput();
 	bool initializeInputDevice();
-
 public:
 	static DxInput* getInstance();
 	~DxInput();

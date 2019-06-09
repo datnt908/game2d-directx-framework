@@ -3,6 +3,11 @@
 
 DxSound* DxSound::instance = NULL;
 
+DxSound::DxSound()
+{
+	soundManager = NULL;
+}
+
 DxSound * DxSound::getInstance()
 {
 	if (instance == NULL)

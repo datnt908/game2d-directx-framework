@@ -21,6 +21,12 @@ void DxKeyboard::collectBuffer()
 	);
 }
 
+DxKeyboard::DxKeyboard()
+{
+	inputKeyb = NULL;
+	keybHandler = NULL;
+}
+
 DxKeyboard::~DxKeyboard()
 {
 	if (inputKeyb != NULL)
@@ -32,13 +38,19 @@ DxKeyboard::~DxKeyboard()
 
 bool DxKeyboard::initialize(KeyboardHandler * keybHandler)
 {
-	HWND hWnd = DxGraphic::getInstance()->window;
+	if (keybHandler == NULL) 
+		return false;
+	HWND window = DxGraphic::getInstance()->window;
+	if (window == NULL)
+		return false;
 	LPDIRECTINPUT8 directInput = DxInput::getInstance()->getDirectInput();
+	if (directInput == NULL)
+		return false;
 	HRESULT result = directInput->CreateDevice(GUID_SysKeyboard, &inputKeyb, NULL);
 	if (result != DI_OK)
 		return false;
-	result = inputKeyb->SetDataFormat(&c_dfDIKeyboard);
-	result = inputKeyb->SetCooperativeLevel(hWnd, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
+	inputKeyb->SetDataFormat(&c_dfDIKeyboard);
+	inputKeyb->SetCooperativeLevel(window, DISCL_FOREGROUND | DISCL_NONEXCLUSIVE);
 
 	DIPROPDWORD deviceDataBuffer = createDeviceDataBuffer(KEYB_BUFFER_SIZE);
 	result = inputKeyb->SetProperty(DIPROP_BUFFERSIZE, &deviceDataBuffer.diph);
@@ -72,4 +84,15 @@ void DxKeyboard::processInput()
 				keybHandler->onKeyRelease(keycode);
 		}
 	}
+}
+
+DIPROPDWORD DxKeyboard::createDeviceDataBuffer(DWORD bufferSize)
+{
+	DIPROPDWORD dipdw;
+	dipdw.diph.dwSize = sizeof(DIPROPDWORD);
+	dipdw.diph.dwHeaderSize = sizeof(DIPROPHEADER);
+	dipdw.diph.dwObj = 0;
+	dipdw.diph.dwHow = DIPH_DEVICE;
+	dipdw.dwData = bufferSize;
+	return dipdw;
 }

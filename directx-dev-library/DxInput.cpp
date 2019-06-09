@@ -5,15 +5,24 @@
 
 DxInput* DxInput::instance = NULL;
 
+DxInput::DxInput()
+{
+	directxInput = NULL;
+	directxMouse = NULL;
+	directxKeyb = NULL;
+}
+
 bool DxInput::initializeInputDevice()
 {
-	HWND hWnd = DxGraphic::getInstance()->window;
+	HWND window = DxGraphic::getInstance()->window;
+
 	HRESULT result = DirectInput8Create(
-		(HINSTANCE)GetWindowLong(hWnd, GWL_HINSTANCE),
+		(HINSTANCE)GetWindowLong(window, GWL_HINSTANCE),
 		DIRECTINPUT_VER,
 		IID_IDirectInput8,
 		(VOID**)&directxInput, NULL
 	);
+
 	if (result != DI_OK)
 		return false;
 	return true;
