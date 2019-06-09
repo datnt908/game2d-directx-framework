@@ -1,4 +1,4 @@
-#include "CollisionEvent.h"
+
 #include "ninjagaidenHelper.h"
 #include "StandAtkState.h"
 #include "Item.h"
@@ -35,11 +35,11 @@ void StandAtkState::handleCollisionWithEnemies(float dtTime)
 
 	for (auto coEvent : coEvents)
 		if (MainCharacter::getInstance()->direction == 1 &&
-			MainCharacter::getInstance()->position.x < coEvent->gameObj->position.x)
-			((BaseEnemy *)coEvent->gameObj)->onCollision();
+			MainCharacter::getInstance()->position.x < coEvent.gameObj->position.x)
+			((BaseEnemy *)coEvent.gameObj)->onCollision();
 		else if (MainCharacter::getInstance()->direction == -1 &&
-			MainCharacter::getInstance()->position.x > coEvent->gameObj->position.x)
-			((BaseEnemy *)coEvent->gameObj)->onCollision();
+			MainCharacter::getInstance()->position.x > coEvent.gameObj->position.x)
+			((BaseEnemy *)coEvent.gameObj)->onCollision();
 		else
 		{
 			setState(MainCharacterState::Immortal);
@@ -60,14 +60,14 @@ void StandAtkState::handleCollisionWithWeapons(float dtTime)
 
 	for (auto coEvent : coEvents)
 		if (MainCharacter::getInstance()->direction == 1 &&
-			MainCharacter::getInstance()->position.x < coEvent->gameObj->position.x)
-			((BaseWeapon*)(coEvent->gameObj))->onCollision(true);
+			MainCharacter::getInstance()->position.x < coEvent.gameObj->position.x)
+			((BaseWeapon*)(coEvent.gameObj))->onCollision(true);
 		else if (MainCharacter::getInstance()->direction == -1 &&
-			MainCharacter::getInstance()->position.x > coEvent->gameObj->position.x)
-			((BaseWeapon*)(coEvent->gameObj))->onCollision(true);
+			MainCharacter::getInstance()->position.x > coEvent.gameObj->position.x)
+			((BaseWeapon*)(coEvent.gameObj))->onCollision(true);
 		else
 		{
-			((BaseWeapon*)(coEvent->gameObj))->onCollision();
+			((BaseWeapon*)(coEvent.gameObj))->onCollision();
 			setState(MainCharacterState::Immortal);
 			return;
 		}
@@ -85,11 +85,11 @@ void StandAtkState::handleCollisionWithItems(float dtTime)
 
 	for (auto coEvent : coEvents)
 		if (MainCharacter::getInstance()->direction == 1 &&
-			MainCharacter::getInstance()->position.x < coEvent->gameObj->position.x)
-			((Item *)(coEvent->gameObj))->onColliWithMainChar(true);
+			MainCharacter::getInstance()->position.x < coEvent.gameObj->position.x)
+			((Item *)(coEvent.gameObj))->onColliWithMainChar(true);
 		else if (MainCharacter::getInstance()->direction == -1 &&
-			MainCharacter::getInstance()->position.x > coEvent->gameObj->position.x)
-			((Item *)(coEvent->gameObj))->onColliWithMainChar(true);
+			MainCharacter::getInstance()->position.x > coEvent.gameObj->position.x)
+			((Item *)(coEvent.gameObj))->onColliWithMainChar(true);
 }
 
 Vector2 StandAtkState::handleCollisionWithGround(float dtTime)
@@ -103,9 +103,9 @@ Vector2 StandAtkState::handleCollisionWithGround(float dtTime)
 		->getColliWithObjsByKind(ObjKind::Ground, dtTime);
 
 	for (auto coEvent : coEvents)
-		if (coEvent->normal.y == 1)
+		if (coEvent.normal.y == 1)
 		{
-			displayment.y *= coEvent->colliTime;
+			displayment.y *= coEvent.colliTime;
 			MainCharacter::getInstance()->velocity.y = 0;
 		}
 

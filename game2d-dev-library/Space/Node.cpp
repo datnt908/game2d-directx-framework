@@ -29,7 +29,7 @@ void Node::loadFromString(string content, Vector2 mapPos)
 
 INTS Node::getObjIDsInView(Vector2 camera, Vector2 clientSize)
 {
-	BOX viewBox, nodeBox;
+	BNDBOX viewBox, nodeBox;
 	viewBox.position = camera;
 	viewBox.size = clientSize;
 	nodeBox.position.x = (float)nodeRect.left;

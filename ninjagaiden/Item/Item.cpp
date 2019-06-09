@@ -1,7 +1,7 @@
 ﻿#include <sstream>
 #include "DxSound.h"
-#include "BoundaryBox.h"
-#include "CollisionEvent.h"
+#include "collisionHelper.h"
+
 #include "TextureCollection.h"
 #include "Sprite.h"
 #include "Animation.h"
@@ -37,9 +37,9 @@ Vector2 Item::handleCollisionWithGround(float dtTime)
 	);
 
 	for (auto coEvent : coEvents)
-		if (coEvent->normal.y == 1)
+		if (coEvent.normal.y == 1)
 		{
-			displayment.y *= coEvent->colliTime;
+			displayment.y *= coEvent.colliTime;
 			velocity.y = 0;
 		}
 
@@ -54,7 +54,7 @@ void Item::handleCollisionWithWater(float dtTime)
 		dtTime, coEvents
 	);
 	if (coEvents.size())
-		if(coEvents[0]->normal = Vector2(0, 0))
+		if(coEvents[0].normal = Vector2(0, 0))
 			GameWorld::getInstance()->deleteObject(this);
 }
 
@@ -141,9 +141,9 @@ void Item::render(Vector2 camera)
 	}
 }
 
-BndBox Item::getBndBox(float dtTime)
+MOVEBOX Item::getMoveBox(float dtTime)
 {
-	BndBox bb;
+	MOVEBOX bb;
 	Vector2 center;
 	switch (state)
 	{

@@ -1,5 +1,4 @@
 #include <dinput.h>
-#include "CollisionEvent.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
 #include "ninjagaidenHelper.h"
@@ -35,7 +34,7 @@ void JumpState::handleCollisionWithStair(float dtTime)
 	{
 		setState(MainCharacterState::Climb);
 		Vector2 size = MainCharacter::getInstance()->animations->getAnimation(stateEnum)->getCurFrameSize();
-		MainCharacter::getInstance()->position.x = coEvents[0]->gameObj->position.x - (size.x / 2 - 1);
+		MainCharacter::getInstance()->position.x = coEvents[0].gameObj->position.x - (size.x / 2 - 1);
 	}
 }
 

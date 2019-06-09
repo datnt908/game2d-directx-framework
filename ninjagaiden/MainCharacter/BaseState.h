@@ -58,7 +58,7 @@ protected:
 	virtual Vector2 handleCollisionWithWall(float dtTime);
 	virtual Vector2 handleCollisionWithGround(float dtTime);
 public:
-	virtual BndBox getBndBox(float dtTime);
+	virtual MOVEBOX getMoveBox(float dtTime);
 	virtual void render(Vector2 viewPos);
 	virtual void update(float dtTime) = 0;
 	virtual void handleKeyInput(bool keyStates[]) = 0;

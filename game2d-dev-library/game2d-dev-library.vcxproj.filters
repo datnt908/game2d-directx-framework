@@ -45,9 +45,6 @@
     <ClInclude Include="BaseGameWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Collision\BoundaryBox.h">
-      <Filter>Header Files\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="Object\GameObject.h">
       <Filter>Header Files\Object</Filter>
     </ClInclude>
@@ -75,7 +72,7 @@
     <ClInclude Include="Object\InteractiveObj.h">
       <Filter>Header Files\Object</Filter>
     </ClInclude>
-    <ClInclude Include="Collision\CollisionEvent.h">
+    <ClInclude Include="Collision\collisionHelper.h">
       <Filter>Header Files\Collision</Filter>
     </ClInclude>
   </ItemGroup>
@@ -85,9 +82,6 @@
     </ClCompile>
     <ClCompile Include="game2dHelper.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Collision\BoundaryBox.cpp">
-      <Filter>Source Files\Collision</Filter>
     </ClCompile>
     <ClCompile Include="Object\GameObject.cpp">
       <Filter>Source Files\Object</Filter>
@@ -115,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="Object\InteractiveObj.cpp">
       <Filter>Source Files\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision\collisionHelper.cpp">
+      <Filter>Source Files\Collision</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

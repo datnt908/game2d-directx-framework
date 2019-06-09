@@ -1,11 +1,18 @@
-#include "BoundaryBox.h"
+#include "collisionHelper.h"
 #include "GameObject.h"
 
-BndBox GameObject::getBndBox(float dtTime)
+GameObject::GameObject()
 {
-	BndBox bb;
-	bb.position = this->position;
-	bb.size = this->size;
-	bb.dtPosition = this->velocity * dtTime;
+	position = Vector2(0.f, 0.f);
+	size = Vector2(0.f, 0.f);
+	velocity = Vector2(0.f, 0.f);
+}
+
+MOVEBOX GameObject::getMoveBox(float dtTime)
+{
+	MOVEBOX bb;
+	bb.position = position;
+	bb.size = size;
+	bb.dtPosition = velocity * dtTime;
 	return bb;
 }

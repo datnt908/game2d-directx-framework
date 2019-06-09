@@ -34,7 +34,7 @@ public:
 	Item(ObjKind icon, Vector2 position);
 	void update(float dtTime);
 	void render(Vector2 camera);
-	BndBox getBndBox(float dtTime);
+	MOVEBOX getMoveBox(float dtTime);
 	/// For game
 	void onColliWithMainChar(bool isAtkTruth = false);
 };

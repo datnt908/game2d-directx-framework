@@ -1,7 +1,7 @@
 #include <sstream>
 #include "DxGraphic.h"
 #include "TextureCollection.h"
-#include "BoundaryBox.h"
+#include "collisionHelper.h"
 #include "SpacePartitioning.h"
 #include "ImmortalObj.h"
 #include "TileMap.h"

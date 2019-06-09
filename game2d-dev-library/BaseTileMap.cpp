@@ -1,5 +1,5 @@
 #include "DxGraphic.h"
-#include "BoundaryBox.h"
+#include "collisionHelper.h"
 #include "Sprite.h"
 #include "BaseTileMap.h"
 
@@ -68,7 +68,7 @@ void BaseTileMap::render(Vector2 camera)
 			);
 }
 
-BndBox BaseTileMap::getBndBox(float dtTime)
+MOVEBOX BaseTileMap::getMoveBox(float dtTime)
 {
-	return BndBox();
+	return MOVEBOX();
 }

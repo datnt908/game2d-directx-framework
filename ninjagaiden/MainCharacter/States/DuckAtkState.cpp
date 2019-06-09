@@ -1,7 +1,7 @@
 #include "Animation.h"
 #include "AnimationCollection.h"
-#include "BoundaryBox.h"
-#include "CollisionEvent.h"
+#include "collisionHelper.h"
+
 #include "DuckState.h"
 #include "DuckAtkState.h"
 #include "MainCharacter.h"
@@ -29,11 +29,11 @@ void DuckAtkState::handleCollisionWithEnemies(float dtTime)
 
 	for (auto coEvent : coEvents)
 		if (MainCharacter::getInstance()->direction == 1 &&
-			MainCharacter::getInstance()->position.x < coEvent->gameObj->position.x)
-			((BaseEnemy *)coEvent->gameObj)->onCollision();
+			MainCharacter::getInstance()->position.x < coEvent.gameObj->position.x)
+			((BaseEnemy *)coEvent.gameObj)->onCollision();
 		else if (MainCharacter::getInstance()->direction == -1 &&
-			MainCharacter::getInstance()->position.x > coEvent->gameObj->position.x)
-			((BaseEnemy *)coEvent->gameObj)->onCollision();
+			MainCharacter::getInstance()->position.x > coEvent.gameObj->position.x)
+			((BaseEnemy *)coEvent.gameObj)->onCollision();
 		else
 		{
 			setState(MainCharacterState::Immortal);
@@ -55,14 +55,14 @@ void DuckAtkState::handleCollisionWithWeapons(float dtTime)
 
 	for (auto coEvent : coEvents)
 		if (MainCharacter::getInstance()->direction == 1 &&
-			MainCharacter::getInstance()->position.x < coEvent->gameObj->position.x)
-			((BaseWeapon*)(coEvent->gameObj))->onCollision(true);
+			MainCharacter::getInstance()->position.x < coEvent.gameObj->position.x)
+			((BaseWeapon*)(coEvent.gameObj))->onCollision(true);
 		else if (MainCharacter::getInstance()->direction == -1 &&
-			MainCharacter::getInstance()->position.x > coEvent->gameObj->position.x)
-			((BaseWeapon*)(coEvent->gameObj))->onCollision(true);
+			MainCharacter::getInstance()->position.x > coEvent.gameObj->position.x)
+			((BaseWeapon*)(coEvent.gameObj))->onCollision(true);
 		else
 		{
-			((BaseWeapon*)(coEvent->gameObj))->onCollision();
+			((BaseWeapon*)(coEvent.gameObj))->onCollision();
 			setState(MainCharacterState::Immortal);
 			return;
 		}

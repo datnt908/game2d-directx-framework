@@ -59,7 +59,7 @@ public:
 	~MainCharacter();
 	void update(float dtTime);
 	void render(Vector2 camera);
-	BndBox getBndBox(float dtTime);
+	MOVEBOX getMoveBox(float dtTime);
 	/// Additional
 	void initialize();
 	bool loadResource();

@@ -4,7 +4,7 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
-#include "BoundaryBox.h"
+#include "collisionHelper.h"
 #include "BaseEnemy.h"
 #include "Scoreboard.h"
 #include "GameWorld.h"
@@ -54,10 +54,10 @@ void BaseEnemy::onCollision()
 	Scoreboard::getInstance()->score += 250;
 }
 
-BndBox BaseEnemy::getBndBox(float dtTime)
+MOVEBOX BaseEnemy::getMoveBox(float dtTime)
 {
-	if (state == EnemyState::DEAD) return BndBox();
-	BndBox bb; Vector2 center;
+	if (state == EnemyState::DEAD) return MOVEBOX();
+	MOVEBOX bb; Vector2 center;
 	center = anicollectS[enemyKind]->getAnimation(state)->getCurFrameCenter();
 	bb.size = anicollectS[enemyKind]->getAnimation(state)->getCurFrameSize();;
 	if (direction == -1)

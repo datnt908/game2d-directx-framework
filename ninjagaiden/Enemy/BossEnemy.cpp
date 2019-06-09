@@ -4,8 +4,7 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
-#include "BoundaryBox.h"
-#include "CollisionEvent.h"
+#include "collisionHelper.h"
 #include "BossEnemy.h"
 #include "Scoreboard.h"
 #include "StraightWeapon.h"
@@ -20,9 +19,9 @@ Vector2 BossEnemy::handleCollisionWithGround(float dtTime)
 	calculateColli(GameWorld::getInstance()->getInProcObjs(ObjKind::Ground), dtTime, coEvents);
 
 	for (auto coEvent : coEvents)
-		if (coEvent->normal.y == 1)
+		if (coEvent.normal.y == 1)
 		{
-			displayment.y *= coEvent->colliTime;
+			displayment.y *= coEvent.colliTime;
 			velocity.y = 0;
 		}
 

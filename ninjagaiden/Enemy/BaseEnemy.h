@@ -35,5 +35,5 @@ public:
 	virtual void update(float dtTime);
 	virtual void render(Vector2 camera);
 	virtual void onCollision();
-	virtual BndBox getBndBox(float dtTime);
+	virtual MOVEBOX getMoveBox(float dtTime);
 };

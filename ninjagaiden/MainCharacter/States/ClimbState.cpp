@@ -1,8 +1,8 @@
 #include <dinput.h>
 #include "Animation.h"
 #include "AnimationCollection.h"
-#include "BoundaryBox.h"
-#include "CollisionEvent.h"
+#include "collisionHelper.h"
+
 #include "ClimbState.h"
 #include "JumpState.h"
 #include "MainCharacter.h"

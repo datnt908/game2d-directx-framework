@@ -1,5 +1,6 @@
 #pragma once
 #include "game2dHelper.h"
+#include "collisionHelper.h"
 
 class GameObject
 {
@@ -11,8 +12,9 @@ public:
 
 /// Methods
 public:
+	GameObject();
 	virtual ~GameObject() {}
 	virtual void update(float dtTime) = 0;
 	virtual void render(Vector2 camera) = 0;
-	virtual BndBox getBndBox(float dtTime);
+	virtual MOVEBOX getMoveBox(float dtTime);
 };

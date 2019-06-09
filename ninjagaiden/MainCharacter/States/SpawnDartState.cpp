@@ -1,4 +1,4 @@
-#include "CollisionEvent.h"
+
 #include "ninjagaidenHelper.h"
 #include "SpawnDartState.h"
 
@@ -33,9 +33,9 @@ Vector2 SpawnDartState::handleCollisionWithGround(float dtTime)
 		->getColliWithObjsByKind(ObjKind::Ground, dtTime);
 
 	for (auto coEvent : coEvents)
-		if (coEvent->normal.y == 1)
+		if (coEvent.normal.y == 1)
 		{
-			displayment.y *= coEvent->colliTime;
+			displayment.y *= coEvent.colliTime;
 			MainCharacter::getInstance()->velocity.y = 0;
 		}
 

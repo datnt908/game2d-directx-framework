@@ -19,5 +19,5 @@ public:
 	virtual bool loadResource() = 0;
 	virtual void update(float dtTime) = 0;
 	virtual void render(Vector2 camera);
-	BndBox getBndBox(float dtTime);
+	MOVEBOX getMoveBox(float dtTime);
 };

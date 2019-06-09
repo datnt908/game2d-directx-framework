@@ -29,7 +29,7 @@ public:
 	static void releaseResource();
 	void render(Vector2 camera);
 	void update(float dtTime);
-	BndBox getBndBox(float dtTime);
+	MOVEBOX getMoveBox(float dtTime);
 	/// For game
 	void onCollision(bool isExplosive = false);
 	void updateMainCharWeapon(float dtTime);

@@ -3,8 +3,8 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
-#include "BoundaryBox.h"
-#include "CollisionEvent.h"
+#include "collisionHelper.h"
+
 #include "BaseState.h"
 #include "JumpState.h"
 #include "StraightWeapon.h"
@@ -59,9 +59,9 @@ bool MainCharacter::loadResource()
 	return true;
 }
 
-BndBox MainCharacter::getBndBox(float dtTime)
+MOVEBOX MainCharacter::getMoveBox(float dtTime)
 {
-	return state->getBndBox(dtTime);
+	return state->getMoveBox(dtTime);
 }
 
 void MainCharacter::render(Vector2 camera)
@@ -100,7 +100,7 @@ MainCharacter::~MainCharacter()
 
 COLLIEVENTS MainCharacter::getColliWithObjsByKind(int objKind, float dtTime)
 {
-	BndBox bbMain = this->getBndBox(dtTime);
+	MOVEBOX bbMain = this->getMoveBox(dtTime);
 	GameWorld* gameWorld = GameWorld::getInstance();
 	COLLIEVENTS colliEvents;
 		calculateColli(gameWorld->getInProcObjs(objKind), dtTime, colliEvents);

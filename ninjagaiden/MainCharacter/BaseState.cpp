@@ -1,8 +1,8 @@
 ﻿#include "DxSound.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
-#include "BoundaryBox.h"
-#include "CollisionEvent.h"
+#include "collisionHelper.h"
+
 #include "Scoreboard.h"
 #include "BaseState.h"
 #include "IdleState.h"
@@ -108,9 +108,9 @@ Vector2 BaseState::handleCollisionWithGround(float dtTime)
 		MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Ground, dtTime);
 
 	for (auto coEvent : coEvents)
-		if (coEvent->normal.y == 1)
+		if (coEvent.normal.y == 1)
 		{
-			displayment.y *= coEvent->colliTime;
+			displayment.y *= coEvent.colliTime;
 			MainCharacter::getInstance()->velocity.y = 0;
 		}
 
@@ -126,16 +126,15 @@ Vector2 BaseState::handleCollisionWithWall(float dtTime)
 	Vector2 tempVelocity = MainCharacter::getInstance()->velocity;
 	MainCharacter::getInstance()->velocity.y = 0;
 	Vector2 displayment = dtTime * MainCharacter::getInstance()->velocity;
-	printBndBoxOutput(getBndBox(dtTime));
 	if (tempVelocity.x != 0)
 		int a = 1;
 	COLLIEVENTS coEvents =
 		MainCharacter::getInstance()->getColliWithObjsByKind(ObjKind::Wall, dtTime);
 	
 	for (auto coEvent : coEvents)
-		if (coEvent->normal.x != 0)
-			displayment.x *= coEvent->colliTime;
-		else if (coEvent->colliTime == 0 && coEvent->normal == Vector2(0, 0))
+		if (coEvent.normal.x != 0)
+			displayment.x *= coEvent.colliTime;
+		else if (coEvent.colliTime == 0 && coEvent.normal == Vector2(0, 0))
 			displayment.x = 0;
 
 	MainCharacter::getInstance()->velocity = tempVelocity;
@@ -169,7 +168,7 @@ void BaseState::handleCollisionWithItems(float dtTime)
 	coEvents.insert(coEvents.end(), tempCoEvents.begin(), tempCoEvents.end());
 
 	for (auto coEvent : coEvents)
-		((Item*)(coEvent->gameObj))->onColliWithMainChar(false);
+		((Item*)(coEvent.gameObj))->onColliWithMainChar(false);
 }
 
 void BaseState::handleCollisionWithEnemies(float dtTime)
@@ -200,7 +199,7 @@ void BaseState::handleCollisionWithWeapons(float dtTime)
 	}
 
 	for (auto coEvent : coEvents)
-		((BaseWeapon*)(coEvent->gameObj))->onCollision();
+		((BaseWeapon*)(coEvent.gameObj))->onCollision();
 
 	if (coEvents.size() != 0)
 		setState(MainCharacterState::Immortal);
@@ -250,9 +249,9 @@ void BaseState::setState(MainCharacterState state)
 	stateEnum = state;
 }
 
-BndBox BaseState::getBndBox(float dtTime)
+MOVEBOX BaseState::getMoveBox(float dtTime)
 {
-	BndBox bb;
+	MOVEBOX bb;
 	Vector2 center;
 	center = MainCharacter::getInstance()->animations->getAnimation(stateEnum)->getCurFrameCenter();
 	bb.size = MainCharacter::getInstance()->animations->getAnimation(stateEnum)->getCurFrameSize();

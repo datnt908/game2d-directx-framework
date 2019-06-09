@@ -3,8 +3,8 @@
 #include "Sprite.h"
 #include "Animation.h"
 #include "AnimationCollection.h"
-#include "BoundaryBox.h"
-#include "CollisionEvent.h"
+#include "collisionHelper.h"
+
 #include "BaseWeapon.h"
 #include "BaseEnemy.h"
 #include "GameWorld.h"
@@ -66,11 +66,11 @@ void BaseWeapon::update(float dtTime)
 		GameWorld::getInstance()->deleteObject(this);
 }
 
-BndBox BaseWeapon::getBndBox(float dtTime)
+MOVEBOX BaseWeapon::getMoveBox(float dtTime)
 {
-	if(timeToDie <= 0) return BndBox();
+	if(timeToDie <= 0) return MOVEBOX();
 	Vector2 center;
-	BndBox bb;
+	MOVEBOX bb;
 	center = sprites[icon]->getCenter();
 	bb.size = sprites[icon]->getSize();
 	Vector2 positionTransfered = transformViewToWorld(center, Vector2(0, bb.size.y));
@@ -99,7 +99,7 @@ void BaseWeapon::updateMainCharWeapon(float dtTime)
 
 	if(coEvents.size() != 0)
 	{
-		((BaseEnemy*)(coEvents[0]->gameObj))->onCollision();
+		((BaseEnemy*)(coEvents[0].gameObj))->onCollision();
 		timeToDie = 0;
 		return;
 	}

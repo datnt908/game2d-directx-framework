@@ -1,6 +1,6 @@
 #include "MovingEnemy.h"
 #include "MainCharacter.h"
-#include "CollisionEvent.h"
+
 #include "GameWorld.h"
 
 Vector2 MovingEnemy::handleCollisionWithGround(float dtTime)
@@ -15,9 +15,9 @@ Vector2 MovingEnemy::handleCollisionWithGround(float dtTime)
 	);
 
 	for (auto coEvent : coEvents)
-		if (coEvent->normal.y == 1)
+		if (coEvent.normal.y == 1)
 		{
-			displayment.y *= coEvent->colliTime;
+			displayment.y *= coEvent.colliTime;
 			velocity.y = 0;
 		}
 
@@ -32,7 +32,7 @@ void MovingEnemy::handleCollisionWithWater(float dtTime)
 		dtTime, coEvents
 	);
 	if (coEvents.size())
-		if (coEvents[0]->normal = Vector2(0, 0))
+		if (coEvents[0].normal = Vector2(0, 0))
 			GameWorld::getInstance()->deleteObject(this);
 }
 
