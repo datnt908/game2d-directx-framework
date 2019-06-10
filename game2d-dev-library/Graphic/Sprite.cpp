@@ -5,7 +5,7 @@ Sprite::Sprite(Texture texture, RECT rect, Vector2 center)
 {
 	this->texture = texture;
 	this->spriteRect = rect;
-	if (center == Vector2(-1, -1))
+	if (center == Vector2(-1.f, -1.f))
 	{
 		center.x = (rect.right - rect.left) / 2.f;
 		center.y = (rect.bottom - rect.top) / 2.f;

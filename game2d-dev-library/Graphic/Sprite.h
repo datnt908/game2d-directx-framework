@@ -14,7 +14,7 @@ private:
 
 /// Methods
 public:
-	Sprite(Texture texture, RECT rect, Vector2 center = Vector2(-1, -1));
+	Sprite(Texture texture, RECT rect, Vector2 center = Vector2(-1.f, -1.f));
 	Vector2 getSize() { return size; }
 	Vector2 getCenter() { return center; }
 	void setRotate(float degrees);

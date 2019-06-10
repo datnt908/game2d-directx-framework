@@ -29,14 +29,14 @@ void Animation::subsEndAniEvent(EndAnimationEvent onEndAniFunct)
 
 void Animation::render(Vector2 viewPos)
 {
-	curFrame = curFrame == -1 ? 0 : curFrame;
+	if (curFrame == -1) return;
 	DWORD now = GetTickCount();
 	frames[curFrame]->render(viewPos);
 	if (now - lastFrameTime > (DWORD)dtFrameTime)
 	{
 		curFrame = (curFrame + 1) % frames.size();
 		lastFrameTime = now;
-		if (curFrame == 0 && endAniEvent != NULL)
+		if (endAniEvent != NULL && curFrame == 0)
 			endAniEvent();
 	}
 }
@@ -44,14 +44,14 @@ void Animation::render(Vector2 viewPos)
 Vector2 Animation::getCurFrameSize()
 {
 	if (curFrame == -1)
-		return Vector2(0, 0);
+		return Vector2(0.f, 0.f);
 	return frames[curFrame]->getSize();
 }
 
 Vector2 Animation::getCurFrameCenter()
 {
 	if (curFrame == -1)
-		return Vector2(0, 0);
+		return Vector2(0.f, 0.f);
 	return frames[curFrame]->getCenter();
 }
 

@@ -1,9 +1,9 @@
 #include "collisionHelper.h"
-
 #include "InteractiveObj.h"
 
 COLLIEVENT InteractiveObj::sweptAABBex(LPGAMEOBJ gameObj, float dtTime)
 {
+	if (gameObj == NULL) return COLLIEVENT();
 	MOVEBOX sObjBBox = gameObj->getMoveBox(dtTime);
 	MOVEBOX mObjBBox = this->getMoveBox(dtTime);
 	Vector2 normal(0.f, 0.f);

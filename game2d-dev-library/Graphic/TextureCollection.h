@@ -8,6 +8,7 @@ private:
 	static TEXTURES* instance;
 	unordered_map<int, Texture> textures;
 	TextureCollection() {}
+
 /// Methods
 public:
 	static TEXTURES* getInstance();

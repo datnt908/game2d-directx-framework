@@ -3,6 +3,11 @@
 #include "Sprite.h"
 #include "BaseTileMap.h"
 
+BaseTileMap::BaseTileMap()
+{
+	spriteSize = Vector2(0.f, 0.f);
+}
+
 BaseTileMap::~BaseTileMap()
 {
 	for (auto sprite : spriteSet)
@@ -12,7 +17,7 @@ BaseTileMap::~BaseTileMap()
 bool BaseTileMap::loadSpriteSet(Texture texture, Vector2 spriteSize)
 {
 	if (texture == NULL) return false;
-	if (spriteSize.x <= 0 || spriteSize.y <= 0) return false;
+	if (spriteSize.x <= 0.f || spriteSize.y <= 0.f) return false;
 	this->spriteSize = spriteSize;
 	int tilesetCols = (int)getTextureSize(texture).x / (int)spriteSize.x;
 	int tilesetRows = (int)getTextureSize(texture).y / (int)spriteSize.y;
@@ -28,7 +33,7 @@ bool BaseTileMap::loadSpriteSet(Texture texture, Vector2 spriteSize)
 			tempRect.right = (j + 1) * spriteSize.x;
 			tempRect.top = i * spriteSize.y;
 			tempRect.bottom = (i + 1) * spriteSize.y;
-			spriteSet.push_back(new Sprite(texture, tempRect, Vector2(0, 0)));
+			spriteSet.push_back(new Sprite(texture, tempRect, Vector2(0.f, 0.f)));
 		}
 	return true;
 }
@@ -63,9 +68,10 @@ void BaseTileMap::render(Vector2 camera)
 
 	for (int i = fromRow; i <= toRow; i++)
 		for (int j = fromCol; j <= toCol; j++)
-			spriteSet[matrixMap[i][j]]->render(
-				viewPos + Vector2(j * spriteSize.x, i * spriteSize.y)
-			);
+		{
+			Vector2 tempViewPos = viewPos + Vector2(j * spriteSize.x, i * spriteSize.y);
+			spriteSet[matrixMap[i][j]]->render(tempViewPos);
+		}
 }
 
 MOVEBOX BaseTileMap::getMoveBox(float dtTime)

@@ -15,6 +15,7 @@ protected:
 	bool loadSpriteSet(Texture texture, Vector2 spriteSize);
 	bool loadMatrixMap(vector<INTS> matrixMap, int maxID);
 public:
+	BaseTileMap();
 	virtual ~BaseTileMap();
 	virtual bool loadResource() = 0;
 	virtual void update(float dtTime) = 0;

@@ -14,17 +14,14 @@ void BaseGameWorld::updateInProcObjsList()
 		else
 			gameObjects.erase(objID);
 
-	for (auto objID : alwayUpdate)
-		if (gameObjects[objID] != NULL)
-			inProcObjs[objID / OBJ_KIND_WEIGHT].push_back(gameObjects[objID]);
-}
-
-void BaseGameWorld::renderInProcObjs(int objKind)
-{			
-	if (inProcObjs.find(objKind) != inProcObjs.end())
-		for (auto obj : inProcObjs[objKind])
-			if(obj != NULL) 
-				obj->render(camera);
+	for(unsigned int i = 0; i < alwayUpdate.size(); i++)
+		if(gameObjects[alwayUpdate[i]] != NULL)
+			inProcObjs[alwayUpdate[i] / OBJ_KIND_WEIGHT].push_back(gameObjects[alwayUpdate[i]]);
+		else
+		{
+			alwayUpdate.erase(alwayUpdate.begin() + i);
+			gameObjects.erase(alwayUpdate[i]);
+		}
 }
 
 BaseGameWorld::BaseGameWorld()
@@ -50,7 +47,6 @@ void BaseGameWorld::addAlwayUpdateObject(int objKind, LPGAMEOBJ gameObj)
 			gameObjects[objID] = gameObj;
 			break;
 		}
-	inProcObjs[objKind].push_back(gameObj);
 	alwayUpdate.push_back(objID);
 }
 
