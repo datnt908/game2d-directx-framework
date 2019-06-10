@@ -51,7 +51,8 @@ int WINAPI WinMain(
 		codeErr = 7;
 
 	if(codeErr == 0)
-		loopMainMessage();
+	
+	loopMainMessage();
 
 	delete directGraphic;
 	delete directInput;
