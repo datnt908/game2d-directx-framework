@@ -10,7 +10,7 @@ Thuộc giáo trình Khoa __Công Nghệ Phần Mềm__ của __ĐẠI HỌC CÔ
 
 Repo chứa đồ án cuối kỳ của nhóm sinh viên năm 2 bao gồm sự đóng góp của:
 
-* _Nguyễn Tiến Đạt: nguyentiendat150699@gmail.com_
+* _Nguyễn Tiến Đạt: datnt908@gmail.com_
 * Và những người khác không muốn đề tên
 
 Đồ án được thiết kế tối ưu nhất mà nhóm có thể, nhằm tạo ra Framework cho môn học.
@@ -44,9 +44,3 @@ Project được xây dựng trên __IDE Visual Studio 2017__ với __Windown SD
      * Ở Project _ninjagaiden_:
      * Ở Project _winmain_:
         *  Mục *__Include Directories__*: _<đường dẫn thư mục DirectX 9 SDK>\Include
-   
-3. __Bổ sung thông tin về lỗi run__
-
-   Hiện tại thông tin về lỗi run và cách fix mình chỉ có được đến mức này. Nếu có phát hiện lỗi hoặc cách fix hãy liên hệ với mình.
-   
-   _Ngày 07-06-2019_
